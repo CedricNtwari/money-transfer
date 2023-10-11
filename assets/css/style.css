@@ -9,6 +9,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
 
 
+/* General Hex code for colors / used root for a global scope */
+:root {
+    /* Used for: Main brand identity and key elements like headings and links. */
+    --primary-color: ;
+
+    /* Used for: Complementary color to the primary color,
+    often for buttons and accents. */
+    --secondary-color: ;
+
+    /* Used for: Default text color for paragraphs and body content. */
+    --tertiary-color: ;
+    --custom-header-background-color: #212A33;
+    --custom-header-text-color: #EFE2B5;
+    --custom-body-background-color: #ebece7;
+    --custom-footer-icons-color: #255E80;
+    --custom-header-footer-hover-color: #FFF;
+    
+}
+
 /* General Styles */
 body {
     min-height: 100vh;
@@ -21,17 +40,73 @@ body {
 
 /* Header */
 header {
-    background-color: lightcoral;
+    background-color: var(--custom-header-background-color);
+    text-align: center;
+    padding: 1rem 0;
+}
+
+h1 {
+    color: var(--custom-header-text-color);
+    font-weight: 700;
+}
+
+a {
+    text-decoration: none;
+}
+
+#logo:hover {
+ color: var(--custom-header-footer-hover-color);
 }
 
 /* Main Content */
 main {
-    background-color: lightblue;
+    background-color: var(--custom-body-background-color);
     /* Make main element take up any surplus space to push footer down */
     flex: 1 0 auto;
 }
 
 /* Footer */
 footer {
-    background-color: orange;
+    background-color: var(--custom-header-text-color);
+    text-align: center;
 }
+
+footer > p{
+    font-weight: bold;
+    padding: 1rem 0;
+}
+
+#social-network {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+}
+
+#social-network a {
+    color: var(--custom-footer-icons-color);
+    padding: 0 1rem;
+}
+
+#social-network a:hover {
+    color: var(--custom-header-footer-hover-color);  
+}
+
+#author{
+    font-size: 11px;
+    font-weight: 400;
+}
+
+/* Media query: large and landscape phones (576px and up) */
+@media screen and (min-width: 576px) {}
+
+/* Media query: tablets and larger (768px and up) */
+@media screen and (min-width: 768px) {}
+
+/* Media query: laptop and larger (992px and up) */
+@media screen and (min-width: 992px) {}
+
+/* Media query: desktop and larger (1200px and up) */
+@media screen and (min-width: 1200px) {}
+
+/* Media query: larger (1400px and up) */
+@media screen and (min-width: 1400px) {}
