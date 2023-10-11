@@ -1,10 +1,16 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Money Transfer Financial Platform
 
-Welcome,
+Welcome to the Money Transfer Financial Platform, a solution for all your currency exchange and money transfer needs. This platform is designed to simplify the process of sending money across borders while providing real-time exchange rate information, ensuring that both senders and recipients have full visibility into the transaction.
 
-This is the Code Institute student template for Codeanywhere. If you are using Gitpod then you need [this template](https://github.com/Code-Institute-Org/gitpod-full-template) instead.  We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+## Features
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Codeanywhere and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **August 30th, 2023**
+## Technologies
+
+- Frontend: 
+- Backend:
+- Security:
+  
+## Contributions
 
 ## Codeanywhere Reminders
 
