@@ -36,7 +36,7 @@
     <!-- Main Content -->
     <main>
         <h2 id="title">Transfer Money Online from any location</h2>
-        <form action="">
+        <form id="form-money" method="post" action="">
             <div class="tab">
                 <div id="select-country">
                     <h3>Select the destination country</h3>
@@ -57,18 +57,35 @@
                 </div>
                 <div class="text-input">
                     <label for="receive-amount">They receive <span>*</span></label>
-                    <input type="number" name="receive-amount" id="receive-amount"  value="0.00 Euro" required>
+                    <input type="number" name="receive-amount" id="receive-amount" value="0.00 Euro" required>
                 </div>
                 <div class="fee-total">
                     <p>Fee: 0.00 Euros</p>
                     <p>Total: 300,000.00 BIF</p>
                 </div>
-                
-                <div class="btn">
-                    <button type="button" id="continue-button">Continue</button>
-                </div>
             </div>
-            <div class="tab"></div>
+            <div class="tab">Deliver Method :
+                <!-- Deliver Method  -->
+                <select class="deliver-method" id="deliver" name="deliver-method">
+                    <option value=""> 🌍 Deliver Method</option>
+                    <option value="bank deposit"> Bank Deposit</option>
+                    <option value="mobile money"> Mobile Money</option>
+                    <option value="cash withdraw"> Cash Withdraw</option>
+                </select>
+            </div>
+            <div class="tab">
+                <label for="message"> Receiver & Sender Details</label>
+                <textarea id="message" name="message" rows="9" cols="50"
+                    placeholder="Add the receiver details or sender details like Bank details"></textarea>
+            </div>
+
+            <div style="overflow:auto;">
+                <div style="float:right;">
+                  <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+                  <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+                </div>
+              </div>
+              
 
         </form>
 

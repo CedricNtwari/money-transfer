@@ -90,6 +90,12 @@ select {
     font-size: inherit;
 }
 
+/* Form Content */
+/* Hide all steps by default: */
+.tab {
+    display: none;
+  }
+
 /* Footer */
 footer {
     background-color: var(--custom-header-text-color);
