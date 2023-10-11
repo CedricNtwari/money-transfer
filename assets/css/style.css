@@ -1,0 +1,37 @@
+/* Asterisk selector to override default styles added by the browser */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Google fonts import */
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
+
+
+/* General Styles */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Tajawal', sans-serif;
+    /* Generic project styles */
+    color: var(--custom-nav-footer-bg-color);
+}
+
+/* Header */
+header {
+    background-color: lightcoral;
+}
+
+/* Main Content */
+main {
+    background-color: lightblue;
+    /* Make main element take up any surplus space to push footer down */
+    flex: 1 0 auto;
+}
+
+/* Footer */
+footer {
+    background-color: orange;
+}
