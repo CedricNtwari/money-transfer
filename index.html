@@ -36,15 +36,42 @@
     <!-- Main Content -->
     <main>
         <h2 id="title">Transfer Money Online from any location</h2>
-        <div id="select-country">
-            <h3>Select the destination country</h3>
-            <!-- Country names -->
-            <select class="form-select" id="country" name="country">
-                <option value=""> 🌍 Country</option>
-                <option value="Burundi"> 🇧🇮 Burundi</option>
-                <option value="Rwanda"> 🇷🇼 Rwanda</option>
-            </select>
-        </div>
+        <form action="">
+            <div class="tab">
+                <div id="select-country">
+                    <h3>Select the destination country</h3>
+                    <!-- Country names -->
+                    <select class="form-select" id="country" name="country">
+                        <option value=""> 🌍 Country</option>
+                        <option value="Burundi"> 🇧🇮 Burundi</option>
+                        <option value="Rwanda"> 🇷🇼 Rwanda</option>
+                    </select>
+                </div>
+                <div class="text-input">
+                    <label for="send-amount">You send <span>*</span></label>
+                    <input type="number" name="send-amount" id="send-amount" value="0.00" required>
+                </div>
+                <div class="text-input">
+                    <p>Exchange rate: 1.00 CHF = 3,074.7363 Burundi Franc (BIF)</p>
+                    <span>The exchange rate changes based on the chosen delivery and payment method.</span>
+                </div>
+                <div class="text-input">
+                    <label for="receive-amount">They receive <span>*</span></label>
+                    <input type="number" name="receive-amount" id="receive-amount"  value="0.00 Euro" required>
+                </div>
+                <div class="fee-total">
+                    <p>Fee: 0.00 Euros</p>
+                    <p>Total: 300,000.00 BIF</p>
+                </div>
+                
+                <div class="btn">
+                    <button type="button" id="continue-button">Continue</button>
+                </div>
+            </div>
+            <div class="tab"></div>
+
+        </form>
+
     </main>
 
     <!-- Footer -->
