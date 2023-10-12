@@ -36,7 +36,8 @@
     <!-- Main Content -->
     <main>
         <h2 id="title">Transfer Money Online from any location</h2>
-        <form id="form-money" method="post" action="">
+        <!--TODO:add action="/submit" by an appropriate action URL for the form & adapt continueButton() function -->
+        <form id="form-money" method="post" action="/" onsubmit="continueButton(1);">
             <div class="tab">
                 <div id="select-country">
                     <h3>Select the destination country</h3>
@@ -78,17 +79,11 @@
                 <textarea id="message" name="message" rows="9" cols="50"
                     placeholder="Add the receiver details or sender details like Bank details"></textarea>
             </div>
-
-            <div style="overflow:auto;">
-                <div style="float:right;">
-                  <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-                  <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
-                </div>
-              </div>
-              
-
+            <div>
+                <button type="button" id="prevBtn" onclick="continueButton(-1)">Previous</button>
+                <button type="button" id="continueBtn" onclick="continueButton(1)">continue</button>
+            </div>
         </form>
-
     </main>
 
     <!-- Footer -->
