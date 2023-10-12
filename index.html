@@ -38,6 +38,7 @@
         <h2 id="title">Transfer Money Online from any location</h2>
         <!--TODO:add action="/submit" by an appropriate action URL for the form & adapt continueButton() function -->
         <form id="form-money" method="post" action="/">
+            <!-- Form tab 1 -->
             <div class="tab">
                 <div id="select-country">
                     <h3>Select the destination country</h3>
@@ -81,8 +82,12 @@
                 </div>
 
             </div>
+            <!-- Form tab 2 -->
             <div id="tab2" class="tab">
                 <h3>Deliver Method :</h3>
+
+                <!-- Accordions -->
+                <!-- Accordion 1 -->
                 <button class="accordion">Bank Deposit</button>
                 <div class="panel">
                     <div class="radio-buttons">
@@ -108,6 +113,7 @@
                     </div>
                 </div>
 
+                <!-- Accordion 2 -->
                 <button class="accordion">Mobile Money</button>
                 <div class="panel">
                     <div class="radio-buttons">
@@ -125,17 +131,22 @@
                     </div>
                 </div>
 
+                <!-- Accordion 3 -->
                 <button class="accordion">Cash Withdraw</button>
                 <div class="panel">
                     <p class="cash-withdraw">Cash Withdraw through our agents</p>
                     <p class="cash-withdraw">Contact: +257 79 xxx xxx</p>
                 </div>
             </div>
+
+            <!-- Form tab 3 -->
             <div id="tab3" class="tab">
                 <label for="message"> Receiver & Sender Details: </label>
                 <textarea id="message" name="message" rows="9" cols="30"
                     placeholder="Add the receiver details or sender details like Bank details"></textarea>
             </div>
+
+            <!-- Form buttons -->
             <div class="button-container">
                 <button type="button" id="prevBtn" class="btn" onclick="continueButton(-1)">Previous</button>
                 <button type="button" id="continueBtn" class="btn" onclick="continueButton(1)">continue</button>

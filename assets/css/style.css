@@ -171,6 +171,8 @@ input[type="number"] {
     padding-top: 4rem;
 }
 
+
+/* Accordions */
 .accordion {
     background-color: aliceblue;
     color: #444;
@@ -199,8 +201,7 @@ input[type="number"] {
 }
 
 
-/* Add a background color to the button if it is clicked on (add the .active class with JS),
-     and when you move the mouse over it (hover) */
+/* Add a background color to the button if it is clicked or hovered  */
 .active,
 .accordion:hover {
    background-color: var(--custom-header-text-color);
@@ -210,7 +211,7 @@ input[type="number"] {
     content: "-";
 }
 
-/* Style the accordion panel. Note: hidden by default */
+/* Accordion panel. Note: hidden by default */
 .panel {
     padding: 0 1rem;
     background-color: white;

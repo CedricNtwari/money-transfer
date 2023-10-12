@@ -60,6 +60,12 @@ function continueButton(n) {
 }
 
 
+
+/**
+ * Initialize the accordion functionality.
+ * Adds click event listeners to accordion elements.
+ */
+
 let acc = document.getElementsByClassName("accordion");
 
 
