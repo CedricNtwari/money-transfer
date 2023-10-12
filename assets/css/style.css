@@ -105,7 +105,7 @@ input[type="number"] {
     -moz-appearance: textfield;
 }
 
-/* Form Content */
+/* Form Content tab 1 */
 /* Hide all steps by default: */
 .tab {
     display: none;
@@ -116,9 +116,10 @@ input[type="number"] {
     font-weight: bold;
     padding: 0.75rem 0 0.75rem 0.5rem;
     background: lightblue;
+    border-radius: 8px;
 }
 
-#exchange-changes {
+.exchange-changes {
     font-size: 11px;
     padding-top: 0.5rem;
     color: red;
@@ -156,6 +157,64 @@ input[type="number"] {
     border: none;
     height: 30px;
 }
+
+/* Form Content tab 2 */
+/* Style the buttons that are used to open and close the accordion panel */
+#tab2,
+#tab3 {
+    padding-top: 4rem;
+}
+
+.accordion {
+    background-color: aliceblue;
+    color: #444;
+    cursor: pointer;
+    padding: 1rem 0.3rem;
+    margin: 0.5rem 0;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    border-radius: 8px;
+}
+
+.accordion:after {
+    content: '+';
+    font-size: 1rem;
+    color: #777;
+    float: right;
+    margin-left: 5px;
+}
+
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS),
+     and when you move the mouse over it (hover) */
+.active,
+.accordion:hover {
+   background-color: var(--custom-header-text-color);
+}
+
+.active:after {
+    content: "-";
+}
+
+/* Style the accordion panel. Note: hidden by default */
+.panel {
+    padding: 0 1rem;
+    background-color: white;
+    display: none;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    /* Set a fixed width for the panel */
+    width: 100%;
+}
+
+.active+.panel {
+    /* Adjust max-height as needed to show content smoothly */
+    max-height: 200px;
+}
+
 
 .button-container {
     display: flex;
