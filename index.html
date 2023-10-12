@@ -51,6 +51,7 @@
                 <div class="text-input">
                     <label for="send-amount">You send: </label>
                     <input type="number" name="send-amount" id="send-amount" value="0.00" required>
+                    <span class="currency">Euros</span>
                 </div>
                 <div class="text-input">
                     <p id="exchange">Exchange rate: 1.00 CHF = 3,074.7363 Burundi Franc (BIF)</p>
@@ -59,6 +60,13 @@
                 <div class="text-input">
                     <label for="receive-amount">They receive: </label>
                     <input type="number" name="receive-amount" id="receive-amount" value="0.00" required>
+                    <span id="currency-select" class="currency">
+                        <select id="currency-selected" name="currency-selected">
+                            <option value=""> 🌍 TRY</option>
+                            <option value="BIF"> 🇧🇮 BIF</option>
+                            <option value="RWF"> 🇷🇼 RWF</option>
+                        </select>
+                    </span>
                 </div>
                 <div class="price-container">
                     <div class="fee">
