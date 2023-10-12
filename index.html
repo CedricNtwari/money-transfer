@@ -87,65 +87,53 @@
                 <div class="panel">
                     <div class="radio-buttons">
                         <label class="exchange-changes">Choose one option </label>
-                        <div class="radio">
-                          <div>
-                            <label for="ecocash">EcoCash </label>
-                            <input
-                              type="radio"
-                              name="mobile_money"
-                              id="ecocash"
-                              value="ecocash"
-                            >
-                          </div>
-                          <div>
-                            <label for="lumicash">LumiCash </label>
-                            <input
-                              type="radio"
-                              name="mobile_money"
-                              id="lumicash"
-                              value="lumicash"
-                            >
-                          </div>
+                        <div class="radio-container">
+                            <div class="radio">
+                                <label for="bcb">BCB </label>
+                                <input type="radio" name="bank_deposit" id="bcb" value="bcb">
+                            </div>
+                            <div class="radio">
+                                <label for="kcb">KCB </label>
+                                <input type="radio" name="bank_deposit" id="kcb" value="kcb">
+                            </div>
+                            <div class="radio">
+                                <label for="bbci">BBCI </label>
+                                <input type="radio" name="bank_deposit" id="bbci" value="bbci">
+                            </div>
+                            <div class="radio">
+                                <label for="crdb">CRDB </label>
+                                <input type="radio" name="bank_deposit" id="crdb" value="crdb">
+                            </div>
                         </div>
-                      </div>
+                    </div>
                 </div>
 
                 <button class="accordion">Mobile Money</button>
                 <div class="panel">
                     <div class="radio-buttons">
                         <label class="exchange-changes">Choose one option </label>
-                        <div class="radio">
-                          <div>
-                            <label for="ecocash">EcoCash </label>
-                            <input
-                              type="radio"
-                              name="mobile_money"
-                              id="ecocash"
-                              value="ecocash"
-                            >
-                          </div>
-                          <div>
-                            <label for="lumicash">LumiCash </label>
-                            <input
-                              type="radio"
-                              name="mobile_money"
-                              id="lumicash"
-                              value="lumicash"
-                            >
-                          </div>
+                        <div class="radio-container">
+                            <div class="radio">
+                                <label for="ecocash">EcoCash </label>
+                                <input type="radio" name="mobile_money" id="ecocash" value="ecocash">
+                            </div>
+                            <div class="radio">
+                                <label for="lumicash">LumiCash </label>
+                                <input type="radio" name="mobile_money" id="lumicash" value="lumicash">
+                            </div>
                         </div>
-                      </div>
+                    </div>
                 </div>
 
                 <button class="accordion">Cash Withdraw</button>
                 <div class="panel">
-                    <p>Cash Withdraw through our agents</p>
-                    <p>Contact: +257 79 xxx xxx</p>
+                    <p class="cash-withdraw">Cash Withdraw through our agents</p>
+                    <p class="cash-withdraw">Contact: +257 79 xxx xxx</p>
                 </div>
             </div>
             <div id="tab3" class="tab">
-                <label for="message"> Receiver & Sender Details</label>
-                <textarea id="message" name="message" rows="9" cols="50"
+                <label for="message"> Receiver & Sender Details: </label>
+                <textarea id="message" name="message" rows="9" cols="30"
                     placeholder="Add the receiver details or sender details like Bank details"></textarea>
             </div>
             <div class="button-container">
