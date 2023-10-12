@@ -37,7 +37,7 @@
     <main>
         <h2 id="title">Transfer Money Online from any location</h2>
         <!--TODO:add action="/submit" by an appropriate action URL for the form & adapt continueButton() function -->
-        <form id="form-money" method="post" action="/" onsubmit="continueButton(1);">
+        <form id="form-money" method="post" action="/">
             <div class="tab">
                 <div id="select-country">
                     <h3>Select the destination country</h3>
@@ -55,7 +55,8 @@
                 </div>
                 <div class="text-input">
                     <p id="exchange">Exchange rate: 1.00 CHF = 3,074.7363 Burundi Franc (BIF)</p>
-                    <span id="exchange-changes">The exchange rate changes based on the chosen delivery and payment method.</span>
+                    <span class="exchange-changes">The exchange rate changes based on the chosen delivery and payment
+                        method.</span>
                 </div>
                 <div class="text-input">
                     <label for="receive-amount">They receive: </label>
@@ -78,18 +79,71 @@
                         <span class="price">300,000.00 BIF</span>
                     </div>
                 </div>
-               
+
             </div>
-            <div class="tab">Deliver Method :
-                <!-- Deliver Method  -->
-                <select class="deliver-method" id="deliver" name="deliver-method">
-                    <option value=""> 🌍 Deliver Method</option>
-                    <option value="bank deposit"> Bank Deposit</option>
-                    <option value="mobile money"> Mobile Money</option>
-                    <option value="cash withdraw"> Cash Withdraw</option>
-                </select>
+            <div id="tab2" class="tab">
+                <h3>Deliver Method :</h3>
+                <button class="accordion">Bank Deposit</button>
+                <div class="panel">
+                    <div class="radio-buttons">
+                        <label class="exchange-changes">Choose one option </label>
+                        <div class="radio">
+                          <div>
+                            <label for="ecocash">EcoCash </label>
+                            <input
+                              type="radio"
+                              name="mobile_money"
+                              id="ecocash"
+                              value="ecocash"
+                            >
+                          </div>
+                          <div>
+                            <label for="lumicash">LumiCash </label>
+                            <input
+                              type="radio"
+                              name="mobile_money"
+                              id="lumicash"
+                              value="lumicash"
+                            >
+                          </div>
+                        </div>
+                      </div>
+                </div>
+
+                <button class="accordion">Mobile Money</button>
+                <div class="panel">
+                    <div class="radio-buttons">
+                        <label class="exchange-changes">Choose one option </label>
+                        <div class="radio">
+                          <div>
+                            <label for="ecocash">EcoCash </label>
+                            <input
+                              type="radio"
+                              name="mobile_money"
+                              id="ecocash"
+                              value="ecocash"
+                            >
+                          </div>
+                          <div>
+                            <label for="lumicash">LumiCash </label>
+                            <input
+                              type="radio"
+                              name="mobile_money"
+                              id="lumicash"
+                              value="lumicash"
+                            >
+                          </div>
+                        </div>
+                      </div>
+                </div>
+
+                <button class="accordion">Cash Withdraw</button>
+                <div class="panel">
+                    <p>Cash Withdraw through our agents</p>
+                    <p>Contact: +257 79 xxx xxx</p>
+                </div>
             </div>
-            <div class="tab">
+            <div id="tab3" class="tab">
                 <label for="message"> Receiver & Sender Details</label>
                 <textarea id="message" name="message" rows="9" cols="50"
                     placeholder="Add the receiver details or sender details like Bank details"></textarea>
