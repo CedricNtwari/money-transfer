@@ -1,4 +1,4 @@
- // Current tab is set to be the first tab (0)
+// Current tab is set to be the first tab (0)
 var currentTab = 0;
 
 // Display the current tab
@@ -15,16 +15,16 @@ function displayTab(i) {
     tab[i].style.display = "block";
     // fix the Previous/Next buttons
     if (i == 0) {
-      document.getElementById("prevBtn").style.display = "none";
+        document.getElementById("prevBtn").style.display = "none";
     } else {
-      document.getElementById("prevBtn").style.display = "inline";
+        document.getElementById("prevBtn").style.display = "inline";
     }
     if (i == (tab.length - 1)) {
-      document.getElementById("continueBtn").innerHTML = "Submit";
+        document.getElementById("continueBtn").innerHTML = "Submit";
     } else {
-      document.getElementById("continueBtn").innerHTML = "Continue";
+        document.getElementById("continueBtn").innerHTML = "Continue";
     }
-  }
+}
 
 
 /**
@@ -35,27 +35,48 @@ function displayTab(i) {
  */
 function continueButton(n) {
     let tab = document.getElementsByClassName("tab");
-    
+
     // Hide the current tab:
     tab[currentTab].style.display = "none";
-    
+
     // Increase or decrease the current tab by 1:
     currentTab += n;
-    
+
     // if you have reached the end of the form
     if (currentTab >= tab.length) {
-      //the form gets submitted:
-      // Display an alert
-      alert('Thank you for your submission. We have received your request.');
-        
-      // Add a delay before reloading the page
-      setTimeout(function() {
-          window.location.reload();
-      }, 10);
-      return false;
+        //the form gets submitted:
+        // Display an alert
+        alert('Thank you for your submission. We have received your request.');
+
+        // Add a delay before reloading the page
+        setTimeout(function () {
+            window.location.reload();
+        }, 10);
+        return false;
     }
-    
+
     // Otherwise, display the correct tab:
     displayTab(currentTab);
-  }
-  
+}
+
+
+let acc = document.getElementsByClassName("accordion");
+
+
+for (let i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function (event) {
+
+        event.preventDefault();
+        /* Toggle between adding and removing the "active" class,
+        to highlight the button that controls the panel */
+        this.classList.toggle("active");
+
+        /* Toggle between hiding and showing the active panel */
+        let panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+            panel.style.display = "none";
+        } else {
+            panel.style.display = "block";
+        }
+    });
+}
