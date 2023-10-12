@@ -93,6 +93,18 @@ input {
     padding-left: 0.5rem;
 }
 
+/* Hide input arrows in Chrome, Safari, and newer versions of Edge */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Hide input arrows in Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
 /* Form Content */
 /* Hide all steps by default: */
 .tab {
@@ -102,12 +114,14 @@ input {
 #exchange {
     position: relative;
     font-weight: bold;
-    padding: 0.75rem 0 0.75rem 0.5rem ;
+    padding: 0.75rem 0 0.75rem 0.5rem;
     background: lightblue;
 }
 
 #exchange-changes {
     font-size: 11px;
+    padding-top: 0.5rem;
+    color: red;
 }
 
 .text-input {
@@ -116,17 +130,36 @@ input {
     flex-direction: column;
     background-color: aliceblue;
     padding: 1rem;
+    position: relative;
 }
 
-.fee, .total {
+.fee,
+.total {
     display: flex;
     justify-content: space-between;
     padding: 1rem 0;
     font-weight: bold;
 }
 
+.currency {
+    position: absolute;
+    top: 55px;
+    right: 25px;
+}
+
+#currency-select {
+    right: 20px;
+    top: 39px;
+}
+
+#currency-select select {
+    border: none;
+    height: 30px;
+}
+
 .button-container {
     display: flex;
+    padding-top: 2rem;
 }
 
 .btn {
