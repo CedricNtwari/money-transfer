@@ -53,16 +53,16 @@
                     <input type="number" name="send-amount" id="send-amount" value="0.00" required>
                 </div>
                 <div class="text-input">
-                    <p>Exchange rate: 1.00 CHF = 3,074.7363 Burundi Franc (BIF)</p>
-                    <span>The exchange rate changes based on the chosen delivery and payment method.</span>
+                    <p id="exchange">Exchange rate: 1.00 CHF = 3,074.7363 Burundi Franc (BIF)</p>
+                    <span id="exchange-changes">The exchange rate changes based on the chosen delivery and payment method.</span>
                 </div>
                 <div class="text-input">
                     <label for="receive-amount">They receive <span>*</span></label>
                     <input type="number" name="receive-amount" id="receive-amount" value="0.00 Euro" required>
                 </div>
                 <div class="fee-total">
-                    <p>Fee: 0.00 Euros</p>
-                    <p>Total: 300,000.00 BIF</p>
+                    <p>Fee: <span>0.00</span> Euros</p>
+                    <p>Total: <span>300,000.00</span> <span>BIF</span></p>
                 </div>
             </div>
             <div class="tab">Deliver Method :
@@ -79,9 +79,9 @@
                 <textarea id="message" name="message" rows="9" cols="50"
                     placeholder="Add the receiver details or sender details like Bank details"></textarea>
             </div>
-            <div>
-                <button type="button" id="prevBtn" onclick="continueButton(-1)">Previous</button>
-                <button type="button" id="continueBtn" onclick="continueButton(1)">continue</button>
+            <div class="button-container">
+                <button type="button" id="prevBtn" class="btn" onclick="continueButton(-1)">Previous</button>
+                <button type="button" id="continueBtn" class="btn" onclick="continueButton(1)">continue</button>
             </div>
         </form>
     </main>
