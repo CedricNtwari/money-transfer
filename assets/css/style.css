@@ -38,7 +38,7 @@ body {
     flex-direction: column;
     font-family: 'Tajawal', sans-serif;
     /* Generic project styles */
-    color:;
+    color: var(--custom-header-background-color);
 }
 
 h1,
