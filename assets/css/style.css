@@ -117,6 +117,13 @@ input {
     padding: 1rem;
 }
 
+.fee, .total {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+    font-weight: bold;
+}
+
 .button-container {
     display: flex;
 }
