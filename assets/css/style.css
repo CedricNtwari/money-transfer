@@ -48,7 +48,7 @@ h3 {
     letter-spacing: 2px;
 }
 
-p{
+p {
     font-weight: 400;
 }
 
@@ -80,11 +80,12 @@ main {
     padding: 1rem;
 }
 
-#select-country{
+#select-country {
     padding: 2rem 0;
 }
 
-select, input {
+select,
+input {
     width: 100%;
     height: 40px;
     font-size: inherit;
@@ -95,13 +96,12 @@ select, input {
 /* Hide all steps by default: */
 .tab {
     display: none;
-  }
+}
 
 #exchange {
     position: relative;
-    height: 40px;
     font-weight: bold;
-    padding-top: 12px;
+    padding: 12px 0;
     background: lightblue;
 }
 
@@ -110,14 +110,14 @@ select, input {
 }
 
 .text-input {
- padding: 1rem 0;
- display: flex;
- flex-direction: column;
- background-color: aliceblue;
- padding: 1rem;
+    padding: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    background-color: aliceblue;
+    padding: 1rem;
 }
 
-.button-container{
+.button-container {
     display: flex;
 }
 
@@ -189,12 +189,13 @@ footer>p {
 
 /* Media query: tablets and larger (768px and up) */
 @media screen and (min-width: 768px) {
+
     /* Main Content */
-main {
-    border : 1px solid var(--custom-body-border-color);
-    margin: 1rem auto;
-    text-align: left;
-}
+    main {
+        border: 1px solid var(--custom-body-border-color);
+        margin: 1rem auto;
+        text-align: left;
+    }
 }
 
 /* Media query: laptop and larger (992px and up) */
