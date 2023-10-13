@@ -104,12 +104,12 @@ function continueButton(n) {
  */
  function initAccordion() {
     // Select all elements with the "accordion" class
-    const accordions = document.querySelectorAll('.accordion');
+    const accordions = document.getElementsByClassName('accordion');
 
     // Add a click event listener to each accordion element
-    accordions.forEach(accordion => {
+    for (const accordion of accordions) {
         accordion.addEventListener('click', toggleAccordion);
-    });
+    }
 }
 
 /**
