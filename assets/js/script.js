@@ -1,6 +1,9 @@
 // Current tab is set to be the first tab (0)
 var currentTab = 0;
 
+// Initialize the accordion functionality
+initAccordion();
+
 // Display the current tab
 displayTab(currentTab);
 
@@ -11,20 +14,55 @@ displayTab(currentTab);
  * @param {number} i - The index of the tab to display.
  */
 function displayTab(i) {
-    let tab = document.getElementsByClassName("tab");
-    tab[i].style.display = "block";
-    // fix the Previous/Next buttons
-    if (i == 0) {
-        document.getElementById("prevBtn").style.display = "none";
-    } else {
-        document.getElementById("prevBtn").style.display = "inline";
-    }
-    if (i == (tab.length - 1)) {
-        document.getElementById("continueBtn").innerHTML = "Submit";
-    } else {
-        document.getElementById("continueBtn").innerHTML = "Continue";
+    const tabs = document.getElementsByClassName("tab");
+    const prevBtn = document.getElementById("prevBtn");
+    const continueBtn = document.getElementById("continueBtn");
+
+    // Hide all tabs
+    hideAllTabs(tabs);
+
+    // Display the current tab
+    showTab(tabs[i]);
+
+    // Determine button labels and icons based on the tab index
+    updateButtonLabels(prevBtn, continueBtn, i, tabs.length);
+}
+
+/**
+ * Function to hide all tabs
+ * @param {HTMLCollectionOf<Element>} tabs - All tabs in the form.
+ */
+function hideAllTabs(tabs) {
+    for (const tab of tabs) {
+        tab.style.display = "none";
     }
 }
+
+/**
+ * Function to show a specific tab
+ * @param {Element} tab - The tab to display.
+ */
+function showTab(tab) {
+    tab.style.display = "block";
+}
+
+/**
+ * Function to update button labels and icons
+ * @param {Element} prevBtn - The Previous button.
+ * @param {Element} continueBtn - The Continue button.
+ * @param {number} i - The index of the tab to display.
+ * @param {number} totalTabs - The total number of tabs.
+ */
+function updateButtonLabels(prevBtn, continueBtn, i, totalTabs) {
+    const isFirstTab = i === 0;
+    const isLastTab = i === totalTabs - 1;
+
+    prevBtn.style.display = isFirstTab ? "none" : "inline";
+    continueBtn.innerHTML = isLastTab
+        ? "Submit <i class='fa-solid fa-paper-plane'></i>"
+        : "Continue <i class='fa-solid fa-forward'></i>";
+}
+
 
 
 /**
@@ -34,7 +72,7 @@ function displayTab(i) {
  * @returns {boolean} - Returns `false` if any field in the current tab is invalid and prevents navigation.
  */
 function continueButton(n) {
-    let tab = document.getElementsByClassName("tab");
+    const tab = document.getElementsByClassName("tab");
 
     // Hide the current tab:
     tab[currentTab].style.display = "none";
@@ -60,29 +98,27 @@ function continueButton(n) {
 }
 
 
-
 /**
- * Initialize the accordion functionality.
+ * Function to initialize the accordion functionality.
  * Adds click event listeners to accordion elements.
  */
+ function initAccordion() {
+    // Select all elements with the "accordion" class
+    const accordions = document.querySelectorAll('.accordion');
 
-let acc = document.getElementsByClassName("accordion");
-
-
-for (let i = 0; i < acc.length; i++) {
-    acc[i].addEventListener("click", function (event) {
-
-        event.preventDefault();
-        /* Toggle between adding and removing the "active" class,
-        to highlight the button that controls the panel */
-        this.classList.toggle("active");
-
-        /* Toggle between hiding and showing the active panel */
-        let panel = this.nextElementSibling;
-        if (panel.style.display === "block") {
-            panel.style.display = "none";
-        } else {
-            panel.style.display = "block";
-        }
+    // Add a click event listener to each accordion element
+    accordions.forEach(accordion => {
+        accordion.addEventListener('click', toggleAccordion);
     });
+}
+
+/**
+ * Function to toggle an accordion 
+ * @param {Event} event - The click event.
+ */
+function toggleAccordion(event) {
+    event.preventDefault();
+    const panel = this.nextElementSibling;
+    panel.classList.toggle('active');
+    panel.style.display = panel.classList.contains('active') ? 'block' : 'none';
 }
