@@ -84,13 +84,35 @@ main {
     padding: 2rem 0;
 }
 
+.custom-select {
+    position: relative;
+}
+
 select {
     width: 100%;
     height: 40px;
     font-size: inherit;
-    margin-top: 0.5rem;
     padding-left: 0.5rem;
+    margin-top: 0.5rem;
+    border: 1px solid #D3D3D3;
+    /* Remove default appearance to hide select arrow */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
 }
+
+.custom-select i {
+    position: absolute;
+    right: 0.5rem; /* Adjust the position as needed */
+    pointer-events: none; /* Prevent icon from blocking clicks */
+    top: 1.1rem;
+}
+
+/* Style the icon */
+.custom-select i.fa-magnifying-glass {
+    font-size: 20px;
+}
+
 
 /* Hide input arrows in Chrome, Safari, and newer versions of Edge */
 input[type="number"]::-webkit-inner-spin-button,
@@ -139,7 +161,7 @@ input[type="number"] {
     font-size: inherit;
     margin-top: 0.5rem;
     padding-left: 0.5rem;
-    border: 1px solid #D3D3D3
+    border: 1px solid #D3D3D3;
 }
 
 .fee,
