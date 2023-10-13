@@ -12,33 +12,32 @@
 /* General Hex code for colors / used root for a global scope */
 :root {
     /* Used for: Main brand identity and key elements like headings and links. */
-    --primary-color: ;
+    --primary-color: #146191; /* #1e4e7e; */
 
     /* Used for: Complementary color to the primary color,
     often for buttons and accents. */
-    --secondary-color: ;
+    --secondary-color: #d37a49;
 
     /* Used for: Default text color for paragraphs and body content. */
-    --tertiary-color: ;
-    --custom-header-background-color: #212A33;
-    --custom-header-text-color: #EFE2B5;
-    --custom-body-background-color: #ebece7;
-    --custom-body-content-background-color: #FFF;
-    --custom-body-border-color: #d3d3d3;
-    --custom-footer-icons-color: #255E80;
+    --tertiary-color: #000;
+
+    --custom-text-color: #FFF;
+    --custom-footer-background-color: #d9b97c;
+    --custom-button-active-color: #a85b2f;
     --custom-header-footer-hover-color: #d3d3d3;
+    --custom-background-text-input-color: #f0f8ff;
+    --custom-accordion-hover: #C0CFF3;
 
 }
 
 /* General Styles */
 body {
-    background-color: var(--custom-body-background-color);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     font-family: 'Tajawal', sans-serif;
     /* Generic project styles */
-    color: var(--custom-header-background-color);
+    color: var(--tertiary-color);
 }
 
 h1,
@@ -58,13 +57,13 @@ a {
 
 /* Header */
 header {
-    background-color: var(--custom-header-background-color);
+    background-color: var(--primary-color);
     text-align: center;
     padding: 1rem 0;
 }
 
 header h1 {
-    color: var(--custom-header-text-color);
+    color: var(--custom-text-color);
     text-transform: uppercase;
 }
 
@@ -94,7 +93,7 @@ select {
     font-size: inherit;
     padding-left: 0.5rem;
     margin-top: 0.5rem;
-    border: 1px solid #D3D3D3;
+    border: 1px solid var(--custom-header-footer-hover-color);
     /* Remove default appearance to hide select arrow */
     appearance: none;
     -webkit-appearance: none;
@@ -110,7 +109,7 @@ select {
 
 /* Style the icon */
 .custom-select i.fa-magnifying-glass {
-    font-size: 20px;
+    font-size: 1.3rem;
 }
 
 
@@ -141,7 +140,7 @@ input[type="number"] {
 }
 
 .exchange-changes {
-    font-size: 11px;
+    font-size: 0.75rem;
     padding-top: 0.5rem;
     color: red;
 }
@@ -150,7 +149,7 @@ input[type="number"] {
     padding: 1rem 0;
     display: flex;
     flex-direction: column;
-    background-color: aliceblue;
+    background-color: var(--custom-background-text-input-color);
     padding: 1rem;
     position: relative;
 }
@@ -161,7 +160,7 @@ input[type="number"] {
     font-size: inherit;
     margin-top: 0.5rem;
     padding-left: 0.5rem;
-    border: 1px solid #D3D3D3;
+    border: 1px solid var(--custom-header-footer-hover-color);
 }
 
 .fee,
@@ -198,8 +197,7 @@ input[type="number"] {
 
 /* Accordions */
 .accordion {
-    background-color: aliceblue;
-    color: #444;
+    background-color: var(--custom-background-text-input-color);
     cursor: pointer;
     padding: 1rem;
     margin: 0.5rem 0;
@@ -212,12 +210,17 @@ input[type="number"] {
     font-size: inherit;
 }
 
-.accordion:after {
+/* Toggle accordion icon when open & close */
+.accordion:before {
     content: '+';
-    font-size: 1rem;
-    color: #777;
-    float: right;
-    margin-left: 5px;
+    position: absolute;
+    right: 1.8rem;
+    transition: transform 0.2s;
+}
+
+/* Rotate the ::before content when .active */
+.panel.active +.accordion::before {
+    transform: translateY(-50%) rotate(180deg);
 }
 
 .radio-buttons {
@@ -228,17 +231,21 @@ input[type="number"] {
     padding: 1rem 0;
 }
 
+.radio:hover {
+    background-color: var(--custom-accordion-hover);
+}
+
 
 /* Add a background color to the button if it is clicked or hovered  */
 .active,
 .accordion:hover {
-    background-color: var(--custom-header-text-color);
+    background-color: var(--custom-accordion-hover);
 }
 
 /* Accordion panel. Note: hidden by default */
 .panel {
     padding: 0 1rem;
-    background-color: aliceblue;
+    background-color: var(--custom-background-text-input-color);
     display: none;
     overflow: hidden;
     transition: max-height 0.3s ease-out;
@@ -248,16 +255,20 @@ input[type="number"] {
 
 .active+.panel {
     /* Adjust max-height as needed to show content smoothly */
-    background-color: aliceblue;
+    background-color: var(--custom-background-text-input-color);
 }
 
 .cash-withdraw {
     padding: 1rem 0;
 }
 
+.cash-withdraw:hover {
+    background-color: var(--custom-accordion-hover);
+}
+
 /* Sender Input below radio buttons */
 .sender-input {
-    margin: 0 0 60px 0;
+    margin: 0 0 3.75rem 0;
     position: relative;
 }
 
@@ -267,13 +278,14 @@ input[type="number"] {
     left: 0;
     /* Add a smooth transition effect for label positioning */
     transition: .5s;
+    color: var(--secondary-color);
 
 }
 
 /* Make input type placeholder floating on focus */
 .sender-input input {
     position: absolute;
-    background-color: var(--custom-header-white-color);
+    background-color: var(--custom-background-text-input-color);
     width: 100%;
     font-size: inherit;
     height: 2rem;
@@ -281,6 +293,10 @@ input[type="number"] {
     border-bottom: 1px solid #D3D3D3;
     /* Remove default outline on focus */
     outline: none;
+}
+
+.sender-input input:hover {
+    background-color: var(--custom-accordion-hover);
 }
 
 
@@ -319,7 +335,7 @@ input[type="number"] {
     padding: 0.5rem;
     font-weight: bold;
     color: red;
-    border: 1px solid #D3D3D3;
+    border: 1px solid var(--custom-header-footer-hover-color);
     border-radius: 8px;
 }
 
@@ -330,14 +346,14 @@ input[type="number"] {
 }
 
 .btn {
-    background-color: var(--custom-footer-icons-color);
+    background-color: var(--secondary-color);
     border-radius: 2.5rem;
     line-height: 1.25;
     padding: 1rem 1.5rem;
     white-space: nowrap;
     border: none;
     letter-spacing: 3px;
-    color: var(--custom-body-content-background-color);
+    color: var(--custom-text-color);
     font-size: 18px;
     cursor: pointer;
     width: -webkit-fill-available;
@@ -345,13 +361,13 @@ input[type="number"] {
 
 /* Define the styles for a clicked button here */
 .btn:active {
-    background-color: #007bff;
-    color: #fff;
+    background-color: var(--custom-button-active-color);
+    color: var(--);
     transition: background-color 0.3s, color 0.3s;
 }
 
 .btn:hover {
-    color: var(--custom-header-text-color);
+    color: var(--custom-header-footer-hover-color);
 }
 
 #prevBtn {
@@ -364,7 +380,7 @@ textarea {
 
 /* Footer */
 footer {
-    background-color: var(--custom-header-text-color);
+    background-color: var(--custom-footer-background-color);
     text-align: center;
 }
 
@@ -380,12 +396,12 @@ footer>p {
 }
 
 #social-network a {
-    color: var(--custom-footer-icons-color);
+    color: var(--tertiary-color);
     padding: 0 1rem;
 }
 
 #social-network a:hover {
-    color: var(--custom-header-footer-hover-color);
+    color: var(--secondary-color);
 }
 
 #author {
@@ -400,7 +416,7 @@ footer>p {
 
     /* Main Content */
     main {
-        border: 1px solid var(--custom-body-border-color);
+        border: 1px solid var(--custom-header-footer-hover-color);
         margin: 1rem auto;
         text-align: left;
     }
