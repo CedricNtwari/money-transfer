@@ -35,7 +35,7 @@
 
     <!-- Main Content -->
     <main>
-        <h2 id="title">Transfer Money Online from any location</h2>
+        <h2 id="title">Quick Transfer Your Money</h2>
         <!--TODO:add action="/submit" by an appropriate action URL for the form & adapt continueButton() function -->
         <form id="form-money" method="post" action="/">
             <!-- Form tab 1 -->
@@ -58,7 +58,7 @@
                     <span class="currency">Euros</span>
                 </div>
                 <div class="text-input">
-                    <p id="exchange">Exchange rate: 1.00 CHF = 3,074.00 Burundi Franc (BIF)</p>
+                    <p id="exchange">Exchange rate: 1.00 CHF = 3,074.00 (BIF)</p>
                     <span class="exchange-changes">The exchange rate changes based on the chosen delivery and payment
                         method.</span>
                 </div>
@@ -162,17 +162,18 @@
             <div id="tab3" class="tab">
                 <label for="message"> Receiver Details: </label>
                 <p class="exchange-changes">Kindly provide recipient details, and we'll reply within 24 hours.</p>
+                <br >
                 <textarea id="message" name="message" rows="9" cols="30"
                     placeholder="Add the receiver details or any special requests/questions"></textarea>
                 <div class="file">
-                    <label for="image"><i class="fa-solid fa-paperclip"></i> Add proof of payment: </label>
+                    <label for="image"><i class="fa-solid fa-paperclip"></i> Add Proof of Payment </label>
                     <input type="file" name="image" id="image" accept="image/*, .jpg, .jpeg, .png" multiple>
                 </div>
             </div>
 
             <!-- Form buttons -->
             <div class="button-container">
-                <button type="button" id="prevBtn" class="btn" onclick="continueButton(-1)"> <i class="fa-solid fa-backward"></i>  Previous</button>
+                <button type="button" id="prevBtn" class="btn" onclick="continueButton(-1)"><i class="fa-solid fa-caret-left"></i>  Previous</button>
                 <button type="button" id="continueBtn" class="btn" onclick="continueButton(1)"></button>
             </div>
         </form>

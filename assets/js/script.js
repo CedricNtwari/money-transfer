@@ -60,7 +60,7 @@ function updateButtonLabels(prevBtn, continueBtn, i, totalTabs) {
     prevBtn.style.display = isFirstTab ? "none" : "inline";
     continueBtn.innerHTML = isLastTab
         ? "Submit <i class='fa-solid fa-paper-plane'></i>"
-        : "Continue <i class='fa-solid fa-forward'></i>";
+        : "Continue <i class='fa-solid fa-caret-right'></i>";
 }
 
 
