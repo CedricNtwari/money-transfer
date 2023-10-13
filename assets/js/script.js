@@ -118,6 +118,8 @@ function continueButton(n) {
  */
 function toggleAccordion(event) {
     event.preventDefault();
+     // Toggle the "active" class on the accordion element
+     this.classList.toggle('active');
     const panel = this.nextElementSibling;
     panel.classList.toggle('active');
     panel.style.display = panel.classList.contains('active') ? 'block' : 'none';

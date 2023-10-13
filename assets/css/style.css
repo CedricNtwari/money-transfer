@@ -224,18 +224,6 @@ input[type="number"] {
     content: '-';
 }
 
-.radio-buttons {
-    padding-bottom: 1rem;
-}
-
-.radio {
-    padding: 1rem 0;
-}
-
-.radio label{
-    letter-spacing: 1px;
-}
-
 /* Add a background color to the button if it is clicked or hovered  */
 .active,
 .accordion:hover {
@@ -253,9 +241,16 @@ input[type="number"] {
     width: 100%;
 }
 
-.active+.panel {
-    /* Adjust max-height as needed to show content smoothly */
-    background-color: var(--custom-background-text-input-color);
+.radio-buttons {
+    padding-bottom: 1rem;
+}
+
+.radio {
+    padding: 1rem 0;
+}
+
+.radio label{
+    letter-spacing: 1px;
 }
 
 .cash-withdraw {
