@@ -44,7 +44,7 @@ h1,
 h2,
 h3 {
     font-weight: 400;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
 }
 
 p {
@@ -188,7 +188,6 @@ input[type="number"] {
 }
 
 /* Form Content tab 2 */
-/* Style the buttons that are used to open and close the accordion panel */
 #tab2,
 #tab3 {
     padding-top: 4rem;
@@ -208,19 +207,21 @@ input[type="number"] {
     transition: 0.4s;
     border-radius: 8px;
     font-size: inherit;
+    position: relative;
+    letter-spacing: 1px;
 }
 
 /* Toggle accordion icon when open & close */
-.accordion:before {
+.accordion::before {
     content: '+';
     position: absolute;
-    right: 1.8rem;
+    right: 1rem;
     transition: transform 0.2s;
 }
 
 /* Rotate the ::before content when .active */
-.panel.active +.accordion::before {
-    transform: translateY(-50%) rotate(180deg);
+.accordion.active::before {
+    content: '-';
 }
 
 .radio-buttons {
@@ -231,10 +232,9 @@ input[type="number"] {
     padding: 1rem 0;
 }
 
-.radio:hover {
-    background-color: var(--custom-accordion-hover);
+.radio label{
+    letter-spacing: 1px;
 }
-
 
 /* Add a background color to the button if it is clicked or hovered  */
 .active,
@@ -387,6 +387,8 @@ footer {
 footer>p {
     font-weight: bold;
     padding: 0.5rem 0;
+    letter-spacing: 1px;
+    font-weight: 500;
 }
 
 #social-network {
@@ -406,6 +408,7 @@ footer>p {
 
 #author {
     font-size: 11px;
+    font-weight: lighter;
 }
 
 /* Media query: large and landscape phones (576px and up) */
@@ -430,6 +433,14 @@ footer>p {
     #prevBtn {
         margin-right: 0.5rem;
         margin-bottom: 0;
+    }
+
+    .radio-container {
+        display: flex;
+    }
+
+    .radio {
+        padding: 1rem 1rem;
     }
 }
 
