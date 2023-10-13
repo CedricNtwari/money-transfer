@@ -138,6 +138,7 @@ input[type="number"] {
     font-size: inherit;
     margin-top: 0.5rem;
     padding-left: 0.5rem;
+    border: 1px solid #D3D3D3
 }
 
 .fee,
@@ -196,6 +197,10 @@ input[type="number"] {
     margin-left: 5px;
 }
 
+.radio-buttons {
+    padding-bottom: 1rem;
+}
+
 .radio {
     padding: 1rem 0;
 }
@@ -231,9 +236,48 @@ input[type="number"] {
     padding: 1rem 0;
 }
 
+/* Sender Input below radio buttons */
+.sender-input {
+    margin: 0 0 60px 0;
+    position: relative;
+}
+
+.sender-input label {
+    position: relative;
+    top: 8px;
+    left: 0;
+    /* Add a smooth transition effect for label positioning */
+    transition: .5s;
+
+}
+
+/* Make input type placeholder floating on focus */
+.sender-input input {
+    position: absolute;
+    background-color: var(--custom-header-white-color);
+    width: 100%;
+    font-size: inherit;
+    height: 2rem;
+    border: none;
+    border-bottom: 1px solid #D3D3D3;
+    /* Remove default outline on focus */
+    outline: none;
+}
+
+
+/* On focus with cursor input text should move up */
+.sender-input input:focus~label,
+.sender-input input:valid~label {
+    top: -20px;
+    left: 0;
+    color: var(--tertiary-color);
+    font-size: 12px;
+}
+
 /* Form Content tab 3 */
 #message {
     margin: 0.5rem 0;
+    padding: 0.5rem;
 }
 
 
