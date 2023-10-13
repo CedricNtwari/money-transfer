@@ -133,7 +133,8 @@ input[type="number"] {
     position: relative;
 }
 
-#send-amount, #receive-amount {
+#send-amount,
+#receive-amount {
     height: 40px;
     font-size: inherit;
     margin-top: 0.5rem;
@@ -209,17 +210,13 @@ input[type="number"] {
 /* Add a background color to the button if it is clicked or hovered  */
 .active,
 .accordion:hover {
-   background-color: var(--custom-header-text-color);
-}
-
-.active:after {
-    content: "-";
+    background-color: var(--custom-header-text-color);
 }
 
 /* Accordion panel. Note: hidden by default */
 .panel {
     padding: 0 1rem;
-    background-color: white;
+    background-color: aliceblue;
     display: none;
     overflow: hidden;
     transition: max-height 0.3s ease-out;
@@ -307,7 +304,6 @@ input[type="number"] {
 
 /* Form Content buttons */
 .button-container {
-    display: flex;
     padding-top: 2rem;
 }
 
@@ -337,7 +333,7 @@ input[type="number"] {
 }
 
 #prevBtn {
-    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
 }
 
 textarea {
@@ -385,6 +381,17 @@ footer>p {
         border: 1px solid var(--custom-body-border-color);
         margin: 1rem auto;
         text-align: left;
+    }
+
+
+    /* Form Content buttons */
+    .button-container {
+        display: flex;
+    }
+
+    #prevBtn {
+        margin-right: 0.5rem;
+        margin-bottom: 0;
     }
 }
 
