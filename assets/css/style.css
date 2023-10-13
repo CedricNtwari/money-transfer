@@ -280,6 +280,30 @@ input[type="number"] {
     padding: 0.5rem;
 }
 
+/* Import images */
+.file {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0;
+}
+
+.file input {
+    padding: 1rem 0
+}
+
+/* Style the icon */
+.file i.fa-upload {
+    margin-right: 0.5rem;
+}
+
+.file input::file-selector-button {
+    padding: 0.5rem;
+    font-weight: bold;
+    color: red;
+    border: 1px solid #D3D3D3;
+    border-radius: 8px;
+}
+
 
 /* Form Content buttons */
 .button-container {
