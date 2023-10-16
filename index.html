@@ -55,7 +55,12 @@
                 <div class="text-input">
                     <label for="send-amount">You send: </label>
                     <input type="number" name="send-amount" id="send-amount" value="0.00" required>
-                    <span class="currency">🇪🇺 EUR</span>
+                    <span id="currency-chose" class="currency">
+                        <select id="currency-chosed" name="currency-chose">
+                            <option value="currency-chose-EUR"> 🇪🇺 EUR</option>
+                            <option value="currency-chose-USD"> 🇺🇸 USD</option>
+                        </select>
+                    </span>
                 </div>
                 <div class="text-input">
                     <p id="exchange">Exchange rate: <span id="exchange-rate">1.00</span> Franc</p>

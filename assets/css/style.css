@@ -173,8 +173,6 @@ input[type="number"] {
 
 .currency {
     position: absolute;
-    top: 50px;
-    right: 25px;
 }
 
 #currency-select {
@@ -183,6 +181,16 @@ input[type="number"] {
 }
 
 #currency-select select {
+    border: none;
+    height: 30px;
+}
+
+#currency-chose {
+    right: 25px;
+    top: 40px;
+}
+
+#currency-chosed {
     border: none;
     height: 30px;
 }
