@@ -157,6 +157,7 @@ function updateReceiveAmount() {
     const exchangeRateElement = document.getElementById('exchange-rate');
     const countrySelect = document.getElementById('country');
     const currencySelect = document.getElementById('currency-selected');
+    const currencyChoose = document.getElementById('currency-chosed');
     const feePrice = document.getElementById('fee-price');
     const price = document.getElementById('price');
 
@@ -164,22 +165,33 @@ function updateReceiveAmount() {
         const sendAmount = parseFloat(sendAmountInput.value);
         const selectedCountry = countrySelect.value;
         const selectedCurrency = currencySelect.value;
-
+        const currencyChosed = currencyChoose.value;
+    
         if (!isNaN(sendAmount) && selectedCountry in exchangeRates) {
             const exchangeRate = exchangeRates[selectedCountry][selectedCurrency];
             if (exchangeRate !== undefined) {
                 const receiveAmount = sendAmount * exchangeRate;
-
+    
                 // Calculate the fee (5% of the send amount)
-                const fee = (sendAmount * 0.05);
-                feePrice.textContent = `+ ${fee.toFixed(2)} EUR`;
-
-                // Calculate the total amount
+                const fee = sendAmount * 0.05;
+    
+                // Define the selected currency symbol
+                let currencySymbol;
+                if (currencyChosed === 'currency-chose-EUR') {
+                    currencySymbol = 'EUR';
+                } else if (currencyChosed === 'currency-chose-USD') {
+                    currencySymbol = 'USD';
+                }
+                console.log(currencySymbol);
+                feePrice.textContent = `+ ${fee.toFixed(2)} ${currencySymbol}`;
+                
+                // Calculate the total amount using the selected currency symbol
                 const totalAmount = sendAmount + fee;
-                price.textContent = `${totalAmount.toFixed(2)} EUR`;
-
-                // Update the displayed exchange rate
-                exchangeRateElement.textContent = `1.00 ${selectedCurrency} = ${exchangeRate} (${selectedCountry})`;
+                price.textContent = `${totalAmount.toFixed(2)} ${currencySymbol}`;
+    
+                // Update the displayed exchange rate with the selected currency symbol
+                exchangeRateElement.textContent = `1.00 ${selectedCurrency} = ${exchangeRate} ${currencySymbol} (${selectedCountry})`;
+                console.log(currencySymbol);
                 receiveAmountInput.value = receiveAmount.toFixed(2);
             } else {
                 // Fallback to Euro if the selected currency is not found
@@ -188,6 +200,8 @@ function updateReceiveAmount() {
             }
         }
     }
+    
+    
 
     sendAmountInput.addEventListener('input', calculateReceiveAmount);
     currencySelect.addEventListener('change', calculateReceiveAmount);
