@@ -82,14 +82,13 @@ function continueButton(n) {
 
     // if you have reached the end of the form
     if (currentTab >= tab.length) {
-        //the form gets submitted:
-        // Display an alert
-        alert('Thank you for your submission. We have received your request.');
-
-        // Add a delay before reloading the page
-        setTimeout(function () {
-            window.location.reload();
-        }, 10);
+        // Submit the form
+        const form = document.getElementById("booknow-form");
+        if (form) {
+            form.submit();
+        } else {
+            console.error("Form element not found.");
+        }
         return false;
     }
 
