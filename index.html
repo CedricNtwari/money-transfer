@@ -55,10 +55,10 @@
                 <div class="text-input">
                     <label for="send-amount">You send: </label>
                     <input type="number" name="send-amount" id="send-amount" value="0.00" required>
-                    <span class="currency">Euros</span>
+                    <span class="currency">🇪🇺 EUR</span>
                 </div>
                 <div class="text-input">
-                    <p id="exchange">Exchange rate: 1.00 CHF = 3,074.00 (BIF)</p>
+                    <p id="exchange">Exchange rate: <span id="exchange-rate">1.00</span> Franc</p>
                     <span class="exchange-changes">The exchange rate changes based on the chosen delivery and payment
                         method.</span>
                 </div>
@@ -67,20 +67,22 @@
                     <input type="number" name="receive-amount" id="receive-amount" value="0.00" required>
                     <span id="currency-select" class="currency">
                         <select id="currency-selected" name="currency-selected">
-                            <option value=""> 🌍 TRY</option>
+                            <option value=""> 🌍 GET</option>
                             <option value="BIF"> 🇧🇮 BIF</option>
                             <option value="RWF"> 🇷🇼 RWF</option>
+                            <option value="EUR"> 🇪🇺 EUR</option>
+                            <option value="USD"> 🇺🇸 USD</option>
                         </select>
                     </span>
                 </div>
                 <div class="price-container">
                     <div class="fee">
-                        <p>Fee: </p>
-                        <span id="fee-price">+ 0.00 Euros</span>
+                        <p>Fee (5%): </p>
+                        <span id="fee-price">+ 0.00 EUR</span>
                     </div>
                     <div class="total">
                         <p>Total:</p>
-                        <span class="price">300,000.00 BIF</span>
+                        <span id="price">0.00</span>
                     </div>
                 </div>
 

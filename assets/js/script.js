@@ -124,3 +124,108 @@ function toggleAccordion(event) {
     panel.classList.toggle('active');
     panel.style.display = panel.classList.contains('active') ? 'block' : 'none';
 }
+
+
+/**
+ * Function to update the "They receive" input based on exchange rate
+ */
+// Define exchange rates for different countries
+const exchangeRates = {
+    Burundi: {
+        BIF: 3074.00,
+        EUR: 1.00,  // Example exchange rate for Euro to BIF
+        USD: 1.18,  // Example exchange rate for USD to BIF
+    },
+    Rwanda: {
+        RWF: 3120.00,
+        EUR: 1.00,  // Example exchange rate for Euro to RWF
+        USD: 1.18,  // Example exchange rate for USD to RWF
+    },
+    EUR: {
+        EUR: 1.00,
+        USD: 1.18,
+    },
+    USD: {
+        EUR: 0.85,
+        USD: 1.00,
+    },
+};
+
+// Function to update the "They receive" input based on exchange rate, selected country, and currency
+function updateReceiveAmount() {
+    const sendAmountInput = document.getElementById('send-amount');
+    const receiveAmountInput = document.getElementById('receive-amount');
+    const exchangeRateElement = document.getElementById('exchange-rate');
+    const countrySelect = document.getElementById('country');
+    const currencySelect = document.getElementById('currency-selected');
+    const feePrice = document.getElementById('fee-price');
+    const price = document.getElementById('price');
+
+    function calculateReceiveAmount() {
+        const sendAmount = parseFloat(sendAmountInput.value);
+        const selectedCountry = countrySelect.value;
+        const selectedCurrency = currencySelect.value;
+
+        if (!isNaN(sendAmount) && selectedCountry in exchangeRates) {
+            const exchangeRate = exchangeRates[selectedCountry][selectedCurrency];
+            if (exchangeRate !== undefined) {
+                const receiveAmount = sendAmount * exchangeRate;
+
+                // Calculate the fee (5% of the send amount)
+                const fee = (sendAmount * 0.05);
+                feePrice.textContent = `+ ${fee.toFixed(2)} EUR`;
+
+                // Calculate the total amount
+                const totalAmount = sendAmount + fee;
+                price.textContent = `${totalAmount.toFixed(2)} ${selectedCurrency}`;
+
+                // Update the displayed exchange rate
+                exchangeRateElement.textContent = `1.00 ${selectedCurrency} = ${exchangeRate} (${selectedCountry})`;
+                receiveAmountInput.value = receiveAmount.toFixed(2);
+            } else {
+                // Fallback to Euro if the selected currency is not found
+                currencySelect.value = 'EUR';
+                calculateReceiveAmount(); // Recalculate with the fallback currency
+            }
+        }
+    }
+
+    sendAmountInput.addEventListener('input', calculateReceiveAmount);
+    currencySelect.addEventListener('change', calculateReceiveAmount);
+
+    countrySelect.addEventListener('change', function () {
+        const selectedCountry = countrySelect.value;
+        if (selectedCountry in exchangeRates) {
+            const exchangeRate = exchangeRates[selectedCountry][currencySelect.value];
+            if (exchangeRate !== undefined) {
+                exchangeRateElement.textContent = `1.00 ${currencySelect.value} = ${exchangeRate} (${selectedCountry})`;
+            }
+
+            // Update the currency selection to match the selected country's available currencies
+            updateCurrencyOptions(selectedCountry);
+
+            // Trigger the calculation of receive amount
+            calculateReceiveAmount();
+        }
+    });
+
+    function updateCurrencyOptions(selectedCountry) {
+        // Define the available currencies based on the selected country
+        const availableCurrencies = Object.keys(exchangeRates[selectedCountry]);
+        for (let i = 0; i < currencySelect.options.length; i++) {
+            const option = currencySelect.options[i];
+            if (availableCurrencies.includes(option.value)) {
+                option.style.display = 'block';
+            } else {
+                option.style.display = 'none';
+            }
+        }
+    }
+
+    // Initialize the calculation and currency options
+    calculateReceiveAmount();
+    updateCurrencyOptions(countrySelect.value);
+}
+
+// Call the function to initialize the event listeners
+updateReceiveAmount();
