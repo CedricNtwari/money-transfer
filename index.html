@@ -36,8 +36,8 @@
     <!-- Main Content -->
     <main>
         <h2 id="title">Quick Transfer Your Money</h2>
-        <!--TODO:add action="/submit" by an appropriate action URL for the form & adapt continueButton() function -->
-        <form id="form-money" method="post" action="/">
+        <!--Using FormSubmit to receive emails from users https://formsubmit.co/email-link-->
+        <form id="booknow-form" method="post" action="https://formsubmit.co/64b65353167716591208df8a9da94881">
             <!-- Form tab 1 -->
             <div class="tab">
                 <div id="select-country">
@@ -67,7 +67,7 @@
                     <input type="number" name="receive-amount" id="receive-amount" value="0.00" required>
                     <span id="currency-select" class="currency">
                         <select id="currency-selected" name="currency-selected">
-                            <option value=""> 🌍 GET</option>
+                            <option value=""> 🌍 GET &#9660;</option>
                             <option value="BIF"> 🇧🇮 BIF</option>
                             <option value="RWF"> 🇷🇼 RWF</option>
                             <option value="EUR"> 🇪🇺 EUR</option>
@@ -78,7 +78,7 @@
                 <div class="price-container">
                     <div class="fee">
                         <p>Fee (5%): </p>
-                        <span id="fee-price">+ 0.00 EUR</span>
+                        <span id="fee-price">+ 0.00</span>
                     </div>
                     <div class="total">
                         <p>Total:</p>

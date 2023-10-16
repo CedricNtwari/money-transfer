@@ -177,7 +177,7 @@ function updateReceiveAmount() {
 
                 // Calculate the total amount
                 const totalAmount = sendAmount + fee;
-                price.textContent = `${totalAmount.toFixed(2)} ${selectedCurrency}`;
+                price.textContent = `${totalAmount.toFixed(2)} EUR`;
 
                 // Update the displayed exchange rate
                 exchangeRateElement.textContent = `1.00 ${selectedCurrency} = ${exchangeRate} (${selectedCountry})`;
