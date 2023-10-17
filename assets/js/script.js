@@ -202,6 +202,8 @@ function updateReceiveAmount() {
 
     sendAmountInput.addEventListener('input', calculateReceiveAmount);
     currencySelect.addEventListener('change', calculateReceiveAmount);
+    // Add an event listener to the currency selection dropdown
+    currencyChoose.addEventListener('change', calculateReceiveAmount);
 
     countrySelect.addEventListener('change', function () {
         const selectedCountry = countrySelect.value;
