@@ -261,7 +261,7 @@ function calculateFee() {
         if (selectedCurrency === 'EUR') {
             feePercentage = 0.07; // 7% fee for EUR
         } else if (selectedCurrency === 'USD') {
-            feePercentage = 0.05; // 5% fee for USD
+            feePercentage = 0.06; // 6% fee for USD
         } else if (selectedCurrency === 'BIF' || selectedCurrency === 'RWF') {
             feePercentage = 0.05; // 5% fee for BIF and RWF
         } else {
