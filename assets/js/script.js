@@ -177,9 +177,9 @@ function updateReceiveAmount() {
 
                 // Define the selected currency symbol
                 let currencySymbol;
-                if (currencyChosed === 'currency-chose-EUR') {
+                if (currencyChosed === 'EUR') {
                     currencySymbol = 'EUR';
-                } else if (currencyChosed === 'currency-chose-USD') {
+                } else if (currencyChosed === 'USD') {
                     currencySymbol = 'USD';
                 }
 
@@ -190,7 +190,7 @@ function updateReceiveAmount() {
                 price.textContent = `${totalAmount.toFixed(2)} ${currencySymbol}`;
 
                 // Update the displayed exchange rate with the selected currency symbol
-                exchangeRateElement.textContent = `1.00 ${selectedCurrency} = ${exchangeRate} ${currencySymbol} (${selectedCountry})`;
+                exchangeRateElement.textContent = `1.00 ${selectedCurrency} = ${exchangeRate} ${currencySymbol}`;
                 receiveAmountInput.value = receiveAmount.toFixed(2);
             } else {
                 // Fallback to Euro if the selected currency is not found
