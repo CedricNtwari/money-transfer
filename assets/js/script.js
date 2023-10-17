@@ -200,6 +200,12 @@ function updateReceiveAmount() {
         }
     }
 
+    sendAmountInput.addEventListener('input', function () {
+        if (!countrySelect.value) {
+            alert("Please choose a country before adding the 'You send' amount.");
+        }
+    });
+
     sendAmountInput.addEventListener('input', calculateReceiveAmount);
     currencySelect.addEventListener('change', calculateReceiveAmount);
     // Add an event listener to the currency selection dropdown
