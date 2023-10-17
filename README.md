@@ -2,14 +2,34 @@
 
 Welcome to the Money Transfer Financial Platform, a solution for all your currency exchange and money transfer needs. This platform is designed to simplify the process of sending money across borders while providing real-time exchange rate information, ensuring that both senders and recipients have full visibility into the transaction.
 
+This platfrom offers suchservices:
+- **Currency Conversion:** Using exchange rates, this code enables users to convert a certain sum between different currencies. The user can enter the desired amount ("You Send"), choose the country of destination ("They Receive"), and the desired currency ("They Receive"). The amount the recipient will receive is determined by the code using currency rates, and it is displayed in the "They Receive" input area.
+
+- **Various payment options:** such as bank deposit, mobile money via an app, and cash withdrawal for delivery methods.
+
+- **Fee Calculation:** A fee is computed by the code based on the amount and selected currency that the user wishes to transmit. The chosen currency (for example, EUR, USD, BIF, or RWF) determines the fee percentage. The charge amount is shown to the user as a percentage of the "You Send" amount as well as a numeric value.
+
+- **Real-time Updates:** As the user enters data into the input fields, the code updates in real-time. For instance, the "They Receive" amount, fee, and total amount are all instantly recalculated and displayed whenever the user modifies the "You Send" amount or chooses a different currency.
+
+- **User Interface Interactions:** The code contains event listeners for a variety of user activities, such as clearing the "You Send" field by clicking on it, confirming the user's selection of a destination nation, and updating the UI when the user modifies the available currencies.
+
 ## Table of Contents
 
 1. [UX Stories](#ux-stories)
 2. [Features](#features)
 3. [Color Palette](#color-palette)
 4. [Technologies](#technologies)
-5. [Contributions](#contributions)
-6. [Codeanywhere Reminders](#codeanywhere-reminders)
+5. [Improvements](#improvements)
+6. [Contributions](#contributions)
+7. [Acknowledgements](#acknowledgements)
+8. [Codeanywhere Reminders](#codeanywhere-reminders)
+
+## User Goals
+
+**User**
+- **Currency Exchange:** New users can easily exchange their currency for another at real-time rates.
+- **Send Money Abroad:** Initiate international money transfers.
+- **Understand Fees:** Understand the fees associated with the money transfer.
 
 ## UX Stories
 
@@ -48,19 +68,24 @@ With these UX stories, we aim to prioritize both the user's needs and the strate
 
 Inspired by the 100 CHF Swiss note, our color scheme is characterized by the following:
 
-- **Primary Color:** [Insert Primary Color Code Here]
-- **Secondary Color:** [Insert Secondary Color Code Here]
-- **Tertiary Color:** [Insert Tertiary Color Code Here]
+- **Primary Color:** [--primary-color: #146191]
+- **Secondary Color:** [--secondary-color: #d37a49]
 
 These colors reflect the elegance and sophistication of Swiss currency and create a visually appealing user experience.
 
 ## Technologies
 
 - **Frontend:** We use a combination of HTML, CSS, and JavaScript to deliver a responsive and visually appealing user interface.
-- **Backend:**
-- **Security:**
+
+## Improvements
   
 ## Contributions
+
+- **Currency Exchange API Integration (Future Development):** One of the upcoming enhancements for this platform is the integration of a currency exchange API. This integration will provide users with real-time and up-to-date currency exchange rates, ensuring that you have access to the most accurate information when sending money across borders.
+
+## Acknowledgements
+
+I would like to express my gratitude to my mentor,Adegbenga Adeye, the Code Institute, and everyone who has supported me on my journey to becoming a full-stack software developer. The warmth and encouragement I've received have been truly wonderful. Thank you!
 
 ## Codeanywhere Reminders
 
