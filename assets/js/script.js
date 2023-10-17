@@ -166,15 +166,15 @@ function updateReceiveAmount() {
         const selectedCountry = countrySelect.value;
         const selectedCurrency = currencySelect.value;
         const currencyChosed = currencyChoose.value;
-    
+
         if (!isNaN(sendAmount) && selectedCountry in exchangeRates) {
             const exchangeRate = exchangeRates[selectedCountry][selectedCurrency];
             if (exchangeRate !== undefined) {
                 const receiveAmount = sendAmount * exchangeRate;
-    
-                // Calculate the fee (5% of the send amount)
-                const fee = sendAmount * 0.05;
-    
+
+                // Calculate the fee (5% of the send amount) in the selected currency
+                const fee = sendAmount * 0.05 * exchangeRate;
+
                 // Define the selected currency symbol
                 let currencySymbol;
                 if (currencyChosed === 'currency-chose-EUR') {
@@ -182,16 +182,15 @@ function updateReceiveAmount() {
                 } else if (currencyChosed === 'currency-chose-USD') {
                     currencySymbol = 'USD';
                 }
-                console.log(currencySymbol);
-                feePrice.textContent = `+ ${fee.toFixed(2)} ${currencySymbol}`;
+
+                feePrice.textContent = `+ ${(fee / exchangeRate).toFixed(2)} ${currencySymbol}`;
                 
-                // Calculate the total amount using the selected currency symbol
-                const totalAmount = sendAmount + fee;
+                // Calculate the total amount in the selected currency
+                const totalAmount = sendAmount + (fee / exchangeRate);
                 price.textContent = `${totalAmount.toFixed(2)} ${currencySymbol}`;
-    
+
                 // Update the displayed exchange rate with the selected currency symbol
                 exchangeRateElement.textContent = `1.00 ${selectedCurrency} = ${exchangeRate} ${currencySymbol} (${selectedCountry})`;
-                console.log(currencySymbol);
                 receiveAmountInput.value = receiveAmount.toFixed(2);
             } else {
                 // Fallback to Euro if the selected currency is not found
@@ -200,8 +199,6 @@ function updateReceiveAmount() {
             }
         }
     }
-    
-    
 
     sendAmountInput.addEventListener('input', calculateReceiveAmount);
     currencySelect.addEventListener('change', calculateReceiveAmount);
@@ -242,3 +239,4 @@ function updateReceiveAmount() {
 
 // Call the function to initialize the event listeners
 updateReceiveAmount();
+
