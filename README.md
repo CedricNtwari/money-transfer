@@ -13,16 +13,21 @@ This platfrom offers suchservices:
 
 - **User Interface Interactions:** The code contains event listeners for a variety of user activities, such as clearing the "You Send" field by clicking on it, confirming the user's selection of a destination nation, and updating the UI when the user modifies the available currencies.
 
+![Money Transfer Financial Platform](assets/images/ui.png)
+
 ## Table of Contents
 
 1. [UX Stories](#ux-stories)
 2. [Features](#features)
 3. [Color Palette](#color-palette)
 4. [Technologies](#technologies)
-5. [Improvements](#improvements)
-6. [Contributions](#contributions)
-7. [Acknowledgements](#acknowledgements)
-8. [Codeanywhere Reminders](#codeanywhere-reminders)
+5. [Testing](#testing)
+6. [Deployment](#deployment)
+7. [Credit](#credit)
+8. [Improvements](#improvements)
+9. [Contributions](#contributions)
+10. [Acknowledgements](#acknowledgements)
+11. [Codeanywhere Reminders](#codeanywhere-reminders)
 
 ## User Goals
 
@@ -71,15 +76,39 @@ Inspired by the 100 CHF Swiss note, our color scheme is characterized by the fol
 - **Primary Color:** [--primary-color: #146191]
 - **Secondary Color:** [--secondary-color: #d37a49]
 
+![100 swiss franc](assets/images/100note.png)
+
 These colors reflect the elegance and sophistication of Swiss currency and create a visually appealing user experience.
 
 ## Technologies
 
 - **Frontend:** We use a combination of HTML, CSS, and JavaScript to deliver a responsive and visually appealing user interface.
 
+## Testing
+
+- Tested in different browser : Chrome, Firefox, Safari.
+- This website is responsive and functions on all screen sizes using devtools device toolbar.
+- All features works good, readable and easy to understand.
+- Book now form misses a submit URL.
+
+**Validator Testing**
+
+- HTML
+  - No errors were returned when passing through the official [W3C validator](https://validator.w3.org/nu/#textarea)
+- CSS
+  - No errors were found when passing through the official [(Jigsaw) validator](https://jigsaw.w3.org/css-validator/#validate_by_input)
+- Accessibility:
+
+
+## Deployment
+
+This project is hosted hosting platform on GitHub.
+
+- The site is deployed to GitHub pages.
+- The live link can be found here: <https://cedricntwari.github.io/money-transfer/>.
+
+
 ## Improvements
-  
-## Contributions
 
 - **Currency Exchange API Integration (Future Development):** One of the upcoming enhancements for this platform is the integration of a currency exchange API. This integration will provide users with real-time and up-to-date currency exchange rates, ensuring that you have access to the most accurate information when sending money across borders.
 
