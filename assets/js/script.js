@@ -199,6 +199,7 @@ function updateReceiveAmount() {
             }
         }
     }
+
     sendAmountInput.addEventListener('click', function () {
         if (sendAmountInput.value === "0.00") {
             sendAmountInput.value = ''; // Clear the input
@@ -243,6 +244,45 @@ function updateReceiveAmount() {
             }
         }
     }
+
+
+    // Function to calculate fee based on 'You Send' amount and currency
+function calculateFee() {
+    const sendAmount = parseFloat(sendAmountInput.value);
+    const selectedCurrency = currencySelect.value;
+    const currencyChosed = currencyChoose.value;
+
+
+    if (!isNaN(sendAmount)) {
+        let feePercentage;
+
+        if (selectedCurrency === 'EUR') {
+            feePercentage = 0.07; // 7% fee for EUR
+        } else if (selectedCurrency === 'USD') {
+            feePercentage = 0.05; // 5% fee for USD
+        } else if (selectedCurrency === 'BIF' || selectedCurrency === 'RWF') {
+            feePercentage = 0.05; // 5% fee for BIF and RWF
+        } else {
+            // Fallback to a default fee percentage if the currency is not recognized
+            feePercentage = 0.05;
+        }
+
+        // Calculate the fee
+        const fee = sendAmount * feePercentage;
+
+        // Update the fee price
+        feePrice.textContent = `+ ${fee.toFixed(2)} ${currencyChosed} (${(feePercentage *100).toFixed(2)} %)`;
+    }
+}
+
+// Add an event listener to the 'send-amount' input
+sendAmountInput.addEventListener('input', calculateFee);
+
+// Add an event listener to the 'currency-selected' dropdown
+currencySelect.addEventListener('change', calculateFee);
+
+// Call the function to initialize the fee calculation
+calculateFee();
 
     // Initialize the calculation and currency options
     calculateReceiveAmount();
