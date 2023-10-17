@@ -166,32 +166,33 @@ function updateReceiveAmount() {
         const selectedCountry = countrySelect.value;
         const selectedCurrency = currencySelect.value;
         const currencyChosed = currencyChoose.value;
-
+    
         if (!isNaN(sendAmount) && selectedCountry in exchangeRates) {
             const exchangeRate = exchangeRates[selectedCountry][selectedCurrency];
             if (exchangeRate !== undefined) {
-                const receiveAmount = sendAmount * exchangeRate;
-
-                // Calculate the fee (5% of the send amount) in the selected currency
-                const fee = sendAmount * 0.05 * exchangeRate;
-
-                // Define the selected currency symbol
-                let currencySymbol;
-                if (currencyChosed === 'EUR') {
-                    currencySymbol = 'EUR';
-                } else if (currencyChosed === 'USD') {
-                    currencySymbol = 'USD';
+                // Calculate the fee using the calculateFee function
+                calculateFee();
+                const feePriceElement = document.getElementById('fee-price');
+                const feeText = feePriceElement.textContent;
+    
+                // Extract the fee value from the feeText
+                const feeMatch = feeText.match(/([+-]?\d+(\.\d+)?)\s+(\S+)/);
+    
+                if (feeMatch && feeMatch.length === 4) {
+                    const feeValue = parseFloat(feeMatch[1]);
+                    const feeCurrency = feeMatch[3];
+    
+                    // Add the fee to the sendAmount to get the total amount in the "You Send" currency
+                    const totalAmount = sendAmount + feeValue;
+    
+                    // Update the fee and total amount in the "You Send" currency
+                    feePriceElement.textContent = `+ ${feeValue.toFixed(2)} ${feeCurrency}`;
+                    price.textContent = `${totalAmount.toFixed(2)} ${feeCurrency}`;
+    
+                    // Update the displayed exchange rate with the selected currency symbol
+                    exchangeRateElement.textContent = `1.00 ${selectedCurrency} = ${exchangeRate} ${feeCurrency}`;
+                    receiveAmountInput.value = (sendAmount * exchangeRate).toFixed(2);
                 }
-
-                feePrice.textContent = `+ ${(fee / exchangeRate).toFixed(2)} ${currencySymbol}`;
-                
-                // Calculate the total amount in the selected currency
-                const totalAmount = sendAmount + (fee / exchangeRate);
-                price.textContent = `${totalAmount.toFixed(2)} ${currencySymbol}`;
-
-                // Update the displayed exchange rate with the selected currency symbol
-                exchangeRateElement.textContent = `1.00 ${selectedCurrency} = ${exchangeRate} ${currencySymbol}`;
-                receiveAmountInput.value = receiveAmount.toFixed(2);
             } else {
                 // Fallback to Euro if the selected currency is not found
                 currencySelect.value = 'EUR';
@@ -199,6 +200,7 @@ function updateReceiveAmount() {
             }
         }
     }
+    
 
     sendAmountInput.addEventListener('click', function () {
         if (sendAmountInput.value === "0.00") {
