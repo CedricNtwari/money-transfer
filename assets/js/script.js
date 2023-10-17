@@ -199,7 +199,11 @@ function updateReceiveAmount() {
             }
         }
     }
-
+    sendAmountInput.addEventListener('click', function () {
+        if (sendAmountInput.value === "0.00") {
+            sendAmountInput.value = ''; // Clear the input
+        }
+    });
     sendAmountInput.addEventListener('input', function () {
         if (!countrySelect.value) {
             alert("Please choose a country before adding the 'You send' amount.");
