@@ -105,6 +105,16 @@ function continueButton(n) {
     displayTab(currentTab);
 }
 
+// Add event listeners for the buttons in your script
+document.getElementById("prevBtn").addEventListener("click", function () {
+    continueButton(-1);
+});
+
+document.getElementById("continueBtn").addEventListener("click", function () {
+    continueButton(1);
+});
+
+
 
 /**
  * Function to initialize the accordion functionality.
