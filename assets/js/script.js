@@ -252,7 +252,6 @@ function updateReceiveAmount() {
 
     function updateCurrencyOptions(selectedCountry) {
         const sendAmount = parseFloat(sendAmountInput.value);
-        const selectedCurrency = currencySelect.value;
         // To execute only when a country and a valid amount are selected. 
         // Otherwise, potential errors are shown until the user provides the required input
         if (selectedCountry && !isNaN(sendAmount)) {
