@@ -63,8 +63,7 @@ header {
 }
 
 header h1 {
-    color: var(--custom-text-color);
-    text-transform: uppercase;
+    color: var(--secondary-color);
 }
 
 #logo:hover {
