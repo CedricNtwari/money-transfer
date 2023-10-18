@@ -76,8 +76,6 @@ function updateButtonLabels(prevBtn, continueBtn, i, totalTabs) {
  *
  * @param {number} n - A positive number to move to the next tab, or a negative number to move to the previous tab.
  * @returns {boolean} - Returns `false` if any field in the current tab is invalid and prevents navigation.
- * This function is typically called when a button is clicked in an HTML file.
- * Example: <button onclick="continueButton(1)">Next</button>
  * 
  */
 function continueButton(n) {
@@ -253,17 +251,31 @@ function updateReceiveAmount() {
     });
 
     function updateCurrencyOptions(selectedCountry) {
-        // Define the available currencies based on the selected country
-        const availableCurrencies = Object.keys(exchangeRates[selectedCountry]);
-        for (let i = 0; i < currencySelect.options.length; i++) {
-            const option = currencySelect.options[i];
-            if (availableCurrencies.includes(option.value)) {
-                option.style.display = 'block';
+        const sendAmount = parseFloat(sendAmountInput.value);
+        const selectedCurrency = currencySelect.value;
+        // To execute only when a country and a valid amount are selected. 
+        // Otherwise, potential errors are shown until the user provides the required input
+        if (selectedCountry && !isNaN(sendAmount)) {
+            // Check if exchangeRates for the selected country exist
+            if (exchangeRates[selectedCountry]) {
+                // Define the available currencies based on the selected country
+                const availableCurrencies = Object.keys(exchangeRates[selectedCountry]);
+                for (let i = 0; i < currencySelect.options.length; i++) {
+                    const option = currencySelect.options[i];
+                    if (availableCurrencies.includes(option.value)) {
+                        option.style.display = 'block';
+                    } else {
+                        option.style.display = 'none';
+                    }
+                }
             } else {
-                option.style.display = 'none';
+                // Handle the case where exchangeRates for the selected country do not exist
+                console.error(`Exchange rates for ${selectedCountry} are not defined.`);
             }
         }
     }
+    
+    
 
 
     // Function to calculate fee based on 'You Send' amount and currency
