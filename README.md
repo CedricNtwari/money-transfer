@@ -97,6 +97,9 @@ These colors reflect the elegance and sophistication of Swiss currency and creat
 - CSS
   - No errors were found when passing through the official [(Jigsaw) validator](https://jigsaw.w3.org/css-validator/#validate_by_input)
 - Accessibility:
+    - No errors were found when passing through web dev tool lighthouse
+- JavaScript: 
+    - No errors were found when passing through the official [(Jshint) validator](https://jshint.com/)
 
 
 ## Deployment
