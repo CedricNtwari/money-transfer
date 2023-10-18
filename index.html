@@ -35,16 +35,17 @@
 
     <!-- Main Content -->
     <main>
-        <h2 id="title">Quick Transfer Your Money</h2>
+        <h1 id="title">Quick Transfer Your Money</h1>
         <!--Using FormSubmit to receive emails from users https://formsubmit.co/email-link-->
         <form id="booknow-form" method="post" action="https://formsubmit.co/64b65353167716591208df8a9da94881">
             <!-- Form tab 1 -->
             <div class="tab">
                 <div id="select-country">
-                    <h3>Select the destination country</h3>
+                    <h2>Select the destination country</h2>
                     <!-- Custom select box & Country names -->
                     <div class="custom-select">
-                      <select class="form-select" id="country" name="country">
+                      <label id="countryLabel" for="countrySelect"></label>
+                      <select class="form-select" id="countrySelect" name="country">
                         <option value=""> 🌍 Country</option>
                         <option value="Burundi"> 🇧🇮 Burundi</option>
                         <option value="Rwanda"> 🇷🇼 Rwanda</option>
@@ -56,6 +57,7 @@
                     <label for="send-amount">You send: </label>
                     <input type="number" name="send-amount" id="send-amount" value="0.00" required>
                     <span id="currency-chose" class="currency">
+                        <label for="currency-chosed"></label>
                         <select id="currency-chosed" name="currency-chose">
                             <option value="EUR"> 🇪🇺 EUR</option>
                             <option value="USD"> 🇺🇸 USD</option>
@@ -64,13 +66,13 @@
                 </div>
                 <div class="text-input">
                     <p id="exchange">Exchange rate: <span id="exchange-rate">1.00</span></p>
-                    <span class="exchange-changes">The exchange rate changes based on the chosen delivery and payment
-                        method.</span>
+                    <span class="exchange-changes">The exchange rate changes daily.</span>
                 </div>
                 <div class="text-input">
                     <label for="receive-amount">They receive: </label>
                     <input type="number" name="receive-amount" id="receive-amount" value="0.00" required>
                     <span id="currency-select" class="currency">
+                        <label for="currency-selected"></label>
                         <select id="currency-selected" name="currency-selected">
                             <option value=""> 🌍 GET &#9660;</option>
                             <option value="BIF"> 🇧🇮 BIF</option>

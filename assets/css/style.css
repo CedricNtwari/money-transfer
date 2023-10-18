@@ -12,17 +12,17 @@
 /* General Hex code for colors / used root for a global scope */
 :root {
     /* Used for: Main brand identity and key elements like headings and links. */
-    --primary-color: #146191; /* #1e4e7e; */
+    --primary-color: #1E7DB0; /* #1e4e7e; */
 
     /* Used for: Complementary color to the primary color,
     often for buttons and accents. */
-    --secondary-color: #d37a49;
+    --secondary-color: #ffaa80;
 
     /* Used for: Default text color for paragraphs and body content. */
     --tertiary-color: #000;
 
     --custom-text-color: #FFF;
-    --custom-footer-background-color: #d9b97c;
+    --custom-footer-background-color: #ffe6ac;
     --custom-button-active-color: #a85b2f;
     --custom-header-footer-hover-color: #d3d3d3;
     --custom-background-text-input-color: #f0f8ff;
@@ -139,7 +139,7 @@ input[type="number"] {
 }
 
 .exchange-changes {
-    font-size: 0.75rem;
+    font-size: smaller;
     padding-top: 0.5rem;
     color: red;
 }
@@ -151,6 +151,7 @@ input[type="number"] {
     background-color: var(--custom-background-text-input-color);
     padding: 1rem;
     position: relative;
+    letter-spacing: 0.5px;
 }
 
 #send-amount,

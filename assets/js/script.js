@@ -142,12 +142,12 @@ const exchangeRates = {
     Burundi: {
         BIF: 3074.00,
         EUR: 1.00,  // Example exchange rate for Euro to BIF
-        USD: 1.18,  // Example exchange rate for USD to BIF
+        USD: 1.00,  // Example exchange rate for USD to BIF
     },
     Rwanda: {
         RWF: 3120.00,
         EUR: 1.00,  // Example exchange rate for Euro to RWF
-        USD: 1.18,  // Example exchange rate for USD to RWF
+        USD: 1.00,  // Example exchange rate for USD to RWF
     },
     EUR: {
         EUR: 1.00,
@@ -164,7 +164,7 @@ function updateReceiveAmount() {
     const sendAmountInput = document.getElementById('send-amount');
     const receiveAmountInput = document.getElementById('receive-amount');
     const exchangeRateElement = document.getElementById('exchange-rate');
-    const countrySelect = document.getElementById('country');
+    const countrySelect = document.getElementById('countrySelect');
     const currencySelect = document.getElementById('currency-selected');
     const currencyChoose = document.getElementById('currency-chosed');
     const feePrice = document.getElementById('fee-price');
