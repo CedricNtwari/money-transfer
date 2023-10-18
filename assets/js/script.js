@@ -1,3 +1,12 @@
+/* 
+   This JSHint directive is used to specify the ECMAScript version for our code. 
+   Setting it to ES6 (ECMAScript 2015) allows us to use ES6 features like 'const' and 'let'. 
+   Without this directive, JSHint may produce an error when encountering ES6 syntax.
+*/
+/* jshint esversion: 6 */
+
+/*jshint esversion: 6 */ 
+
 // Current tab is set to be the first tab (0)
 var currentTab = 0;
 
