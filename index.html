@@ -45,7 +45,7 @@
                     <!-- Custom select box & Country names -->
                     <div class="custom-select">
                       <label id="countryLabel" for="countrySelect"></label>
-                      <select class="form-select" id="countrySelect" name="country">
+                      <select class="form-select" id="countrySelect" name="countrySelect" aria-label="Select Country">
                         <option value=""> 🌍 Country</option>
                         <option value="Burundi"> 🇧🇮 Burundi</option>
                         <option value="Rwanda"> 🇷🇼 Rwanda</option>
@@ -58,7 +58,7 @@
                     <input type="number" name="send-amount" id="send-amount" value="0.00" required>
                     <span id="currency-chose" class="currency">
                         <label for="currency-chosed"></label>
-                        <select id="currency-chosed" name="currency-chose">
+                        <select id="currency-chosed" name="currency-chosed" aria-label="Select currency">
                             <option value="EUR"> 🇪🇺 EUR</option>
                             <option value="USD"> 🇺🇸 USD</option>
                         </select>
@@ -66,14 +66,14 @@
                 </div>
                 <div class="text-input">
                     <p id="exchange">Exchange rate: <span id="exchange-rate">1.00</span></p>
-                    <span class="exchange-changes">The exchange rate changes daily.</span>
+                    <span class="exchange-changes">The exchange rate might change daily.</span>
                 </div>
                 <div class="text-input">
                     <label for="receive-amount">They receive: </label>
                     <input type="number" name="receive-amount" id="receive-amount" value="0.00" required>
                     <span id="currency-select" class="currency">
                         <label for="currency-selected"></label>
-                        <select id="currency-selected" name="currency-selected">
+                        <select id="currency-selected" name="currency-selected" aria-label="Select currency">
                             <option value=""> 🌍 GET &#9660;</option>
                             <option value="BIF"> 🇧🇮 BIF</option>
                             <option value="RWF"> 🇷🇼 RWF</option>
