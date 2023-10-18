@@ -2,8 +2,8 @@
 
 Welcome to the Money Transfer Financial Platform, a solution for all your currency exchange and money transfer needs. This platform is designed to simplify the process of sending money across borders while providing real-time exchange rate information, ensuring that both senders and recipients have full visibility into the transaction.
 
-This platfrom offers suchservices:
-- **Currency Conversion:** Using exchange rates, this code enables users to convert a certain sum between different currencies. The user can enter the desired amount ("You Send"), choose the country of destination ("They Receive"), and the desired currency ("They Receive"). The amount the recipient will receive is determined by the code using currency rates, and it is displayed in the "They Receive" input area.
+This platfrom offers a range of services: 
+- **Currency Conversion:** Using exchange rates, this code enables users to convert a certain sum between different currencies. The user can choose the country of destination then enter the desired amount ("You Send"), and see the desired currency ("They Receive"). The amount the recipient will receive is determined by the code using currency rates, and it is displayed in the "They Receive" input area.
 
 - **Various payment options:** such as bank deposit, mobile money via an app, and cash withdrawal for delivery methods.
 
@@ -26,8 +26,10 @@ This platfrom offers suchservices:
 7. [Credit](#credit)
 8. [Improvements](#improvements)
 9. [Contributions](#contributions)
-10. [Acknowledgements](#acknowledgements)
-11. [Codeanywhere Reminders](#codeanywhere-reminders)
+10. [Credit](#credit)
+11. [Key topics covered here in JavaScript](#key-topics-covered-here-in-javaScript)
+12. [Acknowledgements](#acknowledgements)
+13. [Codeanywhere Reminders](#codeanywhere-reminders)
 
 ## User Goals
 
@@ -57,21 +59,19 @@ With these UX stories, we aim to prioritize both the user's needs and the strate
 
 ## Features
 
-**1. Real-time Exchange Rates:** Stay updated with the latest exchange rates to make informed decisions about your money transfers.
+**1. Real-time Exchange Rates:** Access real-time exchange rate information for various currencies, including EUR, USD, BIF, and RWF, to facilitate the user to make an informed decisions for your financial transactions.
 
-**2. Multiple Step Money Transfer:** We've simplified the transfer process into easy-to-follow steps, ensuring a seamless and secure experience.
+**2. Multiple Step Money Transfer:** The transfer process has been simplified into easy-to-follow steps, ensuring a seamless and secure experience.
 
-**3. Accordions for Easy Navigation:** Our user-friendly interface incorporates accordions for a smooth and intuitive navigation experience.
+**3. Accordions for Easy Navigation:** The user-friendly interface incorporates accordions for a smooth and intuitive navigation experience.
 
-**4. Simple Navigation:** We provide an intuitive and straightforward navigation system, making it easy for users to find the information they need and access various platform features effortlessly.
+**4. Navigation & Footer for Quick Access:** A well-designed navigation & footer with essential links and information, allowing users to quickly navigate to the home page of the platform and our social platforms and customer support.
 
-**5. Footer for Quick Access:** A well-designed footer with essential links and information, allowing users to quickly navigate to important sections of the platform, including FAQs, customer support, and more.
-
-**6. Robust Security:** Our platform employs state-of-the-art security measures to safeguard your financial data and protect your privacy.
+**5. Robust Security:** The platform employs security measures to safeguard your financial data and protect your privacy. We adhere to industry-standard for basic security protocols to ensure your peace of mind.
 
 ## Color Palette
 
-Inspired by the 100 CHF Swiss note, our color scheme is characterized by the following:
+Inspired by the 100 CHF Swiss note, the color scheme is characterized by the following:
 
 - **Primary Color:** [--primary-color: #146191]
 - **Secondary Color:** [--secondary-color: #d37a49]
@@ -89,7 +89,6 @@ These colors reflect the elegance and sophistication of Swiss currency and creat
 - Tested in different browser : Chrome, Firefox, Safari.
 - This website is responsive and functions on all screen sizes using devtools device toolbar.
 - All features works good, readable and easy to understand.
-- Book now form misses a submit URL.
 
 **Validator Testing**
 
@@ -111,6 +110,29 @@ This project is hosted hosting platform on GitHub.
 ## Improvements
 
 - **Currency Exchange API Integration (Future Development):** One of the upcoming enhancements for this platform is the integration of a currency exchange API. This integration will provide users with real-time and up-to-date currency exchange rates, ensuring that you have access to the most accurate information when sending money across borders.
+
+## Credits
+
+In the development of this project, I've used resources like the W3Schools website to learn and implement key web development concepts
+
+- [Collapsibles/Accordion](https://www.w3schools.com/howto/howto_js_accordion.asp)
+- [Form with Multiple Steps](https://www.w3schools.com/howto/howto_js_form_steps.asp)
+
+
+## Key topics covered here in JavaScript
+
+JavaScript code demonstrates a solid understanding of several core web development principles and techniques:
+
+- DOM Manipulation
+- Event Handling
+- Form Handling
+- Accordion Functionality
+- Data Structures
+- Functions
+- Conditional Statements
+- Loops
+- Variable and Data Types
+- Error Handling
 
 ## Acknowledgements
 
