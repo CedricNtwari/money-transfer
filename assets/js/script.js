@@ -5,8 +5,6 @@
 */
 /* jshint esversion: 6 */
 
-/*jshint esversion: 6 */ 
-
 // Current tab is set to be the first tab (0)
 var currentTab = 0;
 
@@ -67,8 +65,7 @@ function updateButtonLabels(prevBtn, continueBtn, i, totalTabs) {
     const isLastTab = i === totalTabs - 1;
 
     prevBtn.style.display = isFirstTab ? "none" : "inline";
-    continueBtn.innerHTML = isLastTab
-        ? "Submit <i class='fa-solid fa-paper-plane'></i>"
+    continueBtn.innerHTML = isLastTab ? "Submit <i class='fa-solid fa-paper-plane'></i>"
         : "Continue <i class='fa-solid fa-caret-right'></i>";
 }
 
@@ -79,6 +76,9 @@ function updateButtonLabels(prevBtn, continueBtn, i, totalTabs) {
  *
  * @param {number} n - A positive number to move to the next tab, or a negative number to move to the previous tab.
  * @returns {boolean} - Returns `false` if any field in the current tab is invalid and prevents navigation.
+ * This function is typically called when a button is clicked in an HTML file.
+ * Example: <button onclick="continueButton(1)">Next</button>
+ * 
  */
 function continueButton(n) {
     const tab = document.getElementsByClassName("tab");
@@ -174,7 +174,6 @@ function updateReceiveAmount() {
         const sendAmount = parseFloat(sendAmountInput.value);
         const selectedCountry = countrySelect.value;
         const selectedCurrency = currencySelect.value;
-        const currencyChosed = currencyChoose.value;
     
         if (!isNaN(sendAmount) && selectedCountry in exchangeRates) {
             const exchangeRate = exchangeRates[selectedCountry][selectedCurrency];

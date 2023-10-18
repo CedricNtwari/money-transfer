@@ -73,8 +73,8 @@ With these UX stories, we aim to prioritize both the user's needs and the strate
 
 Inspired by the 100 CHF Swiss note, the color scheme is characterized by the following:
 
-- **Primary Color:** [--primary-color: #146191]
-- **Secondary Color:** [--secondary-color: #d37a49]
+- **Primary Color:** [--primary-color: #1E7DB0]
+- **Secondary Color:** [--secondary-color: #ffaa80]
 
 ![100 swiss franc](assets/images/100note.png)
 
