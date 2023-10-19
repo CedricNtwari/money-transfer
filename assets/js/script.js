@@ -49,7 +49,7 @@ function hideAllTabs(tabs) {
 
 /**
  * Function to show a specific tab
- * @param {Element} tab - The tab to display.
+ * @param {Element} tab - Tab to display.
  */
 function showTab(tab) {
     tab.style.display = "block";
@@ -57,10 +57,10 @@ function showTab(tab) {
 
 /**
  * Function to update button labels and icons
- * @param {Element} prevBtn - The Previous button.
- * @param {Element} continueBtn - The Continue button.
- * @param {number} i - The index of the tab to display.
- * @param {number} totalTabs - The total number of tabs.
+ * @param {Element} prevBtn - Previous button.
+ * @param {Element} continueBtn - Continue button.
+ * @param {number} i - Index of the tab to display.
+ * @param {number} totalTabs - Total number of tabs.
  */
 function updateButtonLabels(prevBtn, continueBtn, i, totalTabs) {
     const isFirstTab = i === 0;
