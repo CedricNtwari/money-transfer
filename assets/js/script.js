@@ -1,9 +1,11 @@
 /* 
-   This JSHint directive is used to specify the ECMAScript version for our code. 
+   This JSHint directive is used to specify the ECMAScript version for the code. 
    Setting it to ES6 (ECMAScript 2015) allows us to use ES6 features like 'const' and 'let'. 
    Without this directive, JSHint may produce an error when encountering ES6 syntax.
 */
 /* jshint esversion: 6 */
+                    
+                  "------- form tab navigation Code---------------"
 
 // Current tab is set to be the first tab (0)
 var currentTab = 0;
@@ -15,31 +17,10 @@ initAccordion();
 displayTab(currentTab);
 
 /**
- * Display the specified tab of the form 
- * and update the navigation buttons.
- *
- * @param {number} i - The index of the tab to display.
- */
-function displayTab(i) {
-    const tabs = document.getElementsByClassName("tab");
-    const prevBtn = document.getElementById("prevBtn");
-    const continueBtn = document.getElementById("continueBtn");
-
-    // Hide all tabs
-    hideAllTabs(tabs);
-
-    // Display the current tab
-    showTab(tabs[i]);
-
-    // Determine button labels and icons based on the tab index
-    updateButtonLabels(prevBtn, continueBtn, i, tabs.length);
-}
-
-/**
  * Function to hide all tabs
  * @param {HTMLCollectionOf<Element>} tabs - All tabs in the form.
  */
-function hideAllTabs(tabs) {
+ function hideAllTabs(tabs) {
     for (const tab of tabs) {
         tab.style.display = "none";
     }
@@ -69,6 +50,26 @@ function updateButtonLabels(prevBtn, continueBtn, i, totalTabs) {
         : "Continue <i class='fa-solid fa-caret-right'></i>";
 }
 
+/**
+ * Display the specified tab of the form 
+ * and update the navigation buttons.
+ *
+ * @param {number} i - The index of the tab to display.
+ */
+function displayTab(i) {
+    const tabs = document.getElementsByClassName("tab");
+    const prevBtn = document.getElementById("prevBtn");
+    const continueBtn = document.getElementById("continueBtn");
+
+    // Hide all tabs
+    hideAllTabs(tabs);
+
+    // Display the current tab
+    showTab(tabs[i]);
+
+    // Determine button labels and icons based on the tab index
+    updateButtonLabels(prevBtn, continueBtn, i, tabs.length);
+}
 
 
 /**
@@ -113,6 +114,7 @@ document.getElementById("continueBtn").addEventListener("click", function () {
 });
 
 
+                            "------- Accordion Code ---------------"
 
 /**
  * Function to initialize the accordion functionality.
@@ -142,9 +144,9 @@ function toggleAccordion(event) {
 }
 
 
-/**
- * Function to update the "They receive" input based on exchange rate
- */
+                        "------- Calculate receive amount Code ---------------"
+
+
 // Define exchange rates for different countries
 const exchangeRates = {
     Burundi: {
