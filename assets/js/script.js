@@ -118,7 +118,7 @@ document.getElementById("continueBtn").addEventListener("click", function () {
  * Function to initialize the accordion functionality.
  * Adds click event listeners to accordion elements.
  */
- function initAccordion() {
+function initAccordion() {
     // Select all elements with the "accordion" class
     const accordions = document.getElementsByClassName('accordion');
 
@@ -134,8 +134,8 @@ document.getElementById("continueBtn").addEventListener("click", function () {
  */
 function toggleAccordion(event) {
     event.preventDefault();
-     // Toggle the "active" class on the accordion element
-     this.classList.toggle('active');
+    // Toggle the "active" class on the accordion element
+    this.classList.toggle('active');
     const panel = this.nextElementSibling;
     panel.classList.toggle('active');
     panel.style.display = panel.classList.contains('active') ? 'block' : 'none';
@@ -182,7 +182,7 @@ function updateReceiveAmount() {
         const sendAmount = parseFloat(sendAmountInput.value);
         const selectedCountry = countrySelect.value;
         const selectedCurrency = currencySelect.value;
-    
+
         if (!isNaN(sendAmount) && selectedCountry in exchangeRates) {
             const exchangeRate = exchangeRates[selectedCountry][selectedCurrency];
             if (exchangeRate !== undefined) {
@@ -190,21 +190,21 @@ function updateReceiveAmount() {
                 calculateFee();
                 const feePriceElement = document.getElementById('fee-price');
                 const feeText = feePriceElement.textContent;
-    
+
                 // Extract the fee value from the feeText
                 const feeMatch = feeText.match(/([+-]?\d+(\.\d+)?)\s+(\S+)/);
-    
+
                 if (feeMatch && feeMatch.length === 4) {
                     const feeValue = parseFloat(feeMatch[1]);
                     const feeCurrency = feeMatch[3];
-    
+
                     // Add the fee to the sendAmount to get the total amount in the "You Send" currency
                     const totalAmount = sendAmount + feeValue;
-    
+
                     // Update the fee and total amount in the "You Send" currency
                     feePriceElement.textContent = `+ ${feeValue.toFixed(2)} ${feeCurrency}`;
                     price.textContent = `${totalAmount.toFixed(2)} ${feeCurrency}`;
-    
+
                     // Update the displayed exchange rate with the selected currency symbol
                     exchangeRateElement.textContent = `1.00 ${selectedCurrency} = ${exchangeRate} ${feeCurrency}`;
                     receiveAmountInput.value = (sendAmount * exchangeRate).toFixed(2);
@@ -216,7 +216,7 @@ function updateReceiveAmount() {
             }
         }
     }
-    
+
 
     sendAmountInput.addEventListener('click', function () {
         if (sendAmountInput.value === "0.00") {
@@ -243,14 +243,19 @@ function updateReceiveAmount() {
             }
 
             // Update the currency selection to match the selected country's available currencies
-            updateCurrencyOptions(selectedCountry);
+            updateAvailableCurrencyOptions(selectedCountry);
 
             // Trigger the calculation of receive amount
             calculateReceiveAmount();
         }
     });
 
-    function updateCurrencyOptions(selectedCountry) {
+    /**
+     * responsible for dynamically updating the available currency options
+     * in a select dropdown based on a selected country
+     * @param {*} selectedCountry 
+     */
+    function updateAvailableCurrencyOptions(selectedCountry) {
         const sendAmount = parseFloat(sendAmountInput.value);
         // To execute only when a country and a valid amount are selected. 
         // Otherwise, potential errors are shown until the user provides the required input
@@ -273,51 +278,53 @@ function updateReceiveAmount() {
             }
         }
     }
-    
-    
 
 
-    // Function to calculate fee based on 'You Send' amount and currency
-function calculateFee() {
-    const sendAmount = parseFloat(sendAmountInput.value);
-    const selectedCurrency = currencySelect.value;
-    const currencyChosed = currencyChoose.value;
+
+     /**
+      * Function to calculate fee based on 'You Send' amount and currency
+      * and update the fee price
+      */
+    function calculateFee() {
+        const sendAmount = parseFloat(sendAmountInput.value);
+        const selectedCurrency = currencySelect.value;
+        const currencyChosed = currencyChoose.value;
 
 
-    if (!isNaN(sendAmount)) {
-        let feePercentage;
+        if (!isNaN(sendAmount)) {
+            let feePercentage;
 
-        if (selectedCurrency === 'EUR') {
-            feePercentage = 0.07; // 7% fee for EUR
-        } else if (selectedCurrency === 'USD') {
-            feePercentage = 0.06; // 6% fee for USD
-        } else if (selectedCurrency === 'BIF' || selectedCurrency === 'RWF') {
-            feePercentage = 0.05; // 5% fee for BIF and RWF
-        } else {
-            // Fallback to a default fee percentage if the currency is not recognized
-            feePercentage = 0.05;
+            if (selectedCurrency === 'EUR') {
+                feePercentage = 0.07; // 7% fee for EUR
+            } else if (selectedCurrency === 'USD') {
+                feePercentage = 0.06; // 6% fee for USD
+            } else if (selectedCurrency === 'BIF' || selectedCurrency === 'RWF') {
+                feePercentage = 0.05; // 5% fee for BIF and RWF
+            } else {
+                // Fallback to a default fee percentage if the currency is not recognized
+                feePercentage = 0.05;
+            }
+
+            // Calculate the fee
+            const fee = sendAmount * feePercentage;
+
+            // Update the fee price
+            feePrice.textContent = `+ ${fee.toFixed(2)} ${currencyChosed} (${(feePercentage * 100).toFixed(2)} %)`;
         }
-
-        // Calculate the fee
-        const fee = sendAmount * feePercentage;
-
-        // Update the fee price
-        feePrice.textContent = `+ ${fee.toFixed(2)} ${currencyChosed} (${(feePercentage *100).toFixed(2)} %)`;
     }
-}
 
-// Add an event listener to the 'send-amount' input
-sendAmountInput.addEventListener('input', calculateFee);
+    // Add an event listener to the 'send-amount' input
+    sendAmountInput.addEventListener('input', calculateFee);
 
-// Add an event listener to the 'currency-selected' dropdown
-currencySelect.addEventListener('change', calculateFee);
+    // Add an event listener to the 'currency-selected' dropdown
+    currencySelect.addEventListener('change', calculateFee);
 
-// Call the function to initialize the fee calculation
-calculateFee();
+    // Call the function to initialize the fee calculation
+    calculateFee();
 
     // Initialize the calculation and currency options
     calculateReceiveAmount();
-    updateCurrencyOptions(countrySelect.value);
+    updateAvailableCurrencyOptions(countrySelect.value);
 }
 
 // Call the function to initialize the event listeners
