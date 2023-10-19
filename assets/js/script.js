@@ -17,6 +17,27 @@ initAccordion();
 displayTab(currentTab);
 
 /**
+ * Display the specified tab of the form 
+ * and update the navigation buttons.
+ *
+ * @param {number} i - The index of the tab to display.
+ */
+ function displayTab(i) {
+    const tabs = document.getElementsByClassName("tab");
+    const prevBtn = document.getElementById("prevBtn");
+    const continueBtn = document.getElementById("continueBtn");
+
+    // Hide all tabs
+    hideAllTabs(tabs);
+
+    // Display the current tab
+    showTab(tabs[i]);
+
+    // Determine button labels and icons based on the tab index
+    updateButtonLabels(prevBtn, continueBtn, i, tabs.length);
+}
+
+/**
  * Function to hide all tabs
  * @param {HTMLCollectionOf<Element>} tabs - All tabs in the form.
  */
@@ -48,27 +69,6 @@ function updateButtonLabels(prevBtn, continueBtn, i, totalTabs) {
     prevBtn.style.display = isFirstTab ? "none" : "inline";
     continueBtn.innerHTML = isLastTab ? "Submit <i class='fa-solid fa-paper-plane'></i>"
         : "Continue <i class='fa-solid fa-caret-right'></i>";
-}
-
-/**
- * Display the specified tab of the form 
- * and update the navigation buttons.
- *
- * @param {number} i - The index of the tab to display.
- */
-function displayTab(i) {
-    const tabs = document.getElementsByClassName("tab");
-    const prevBtn = document.getElementById("prevBtn");
-    const continueBtn = document.getElementById("continueBtn");
-
-    // Hide all tabs
-    hideAllTabs(tabs);
-
-    // Display the current tab
-    showTab(tabs[i]);
-
-    // Determine button labels and icons based on the tab index
-    updateButtonLabels(prevBtn, continueBtn, i, tabs.length);
 }
 
 
