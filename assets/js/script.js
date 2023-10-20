@@ -93,6 +93,14 @@ function continueButton(n) {
         // Submit the form
         const form = document.getElementById("booknow-form");
         if (form) {
+            // Add an alert when the form is submitted
+            alert('Thank you for your submission. We have received your request.');
+
+            // Delay the page reload for a brief moment
+            setTimeout(function () {
+                window.location.reload();
+            }, 10);
+            //submit form
             form.submit();
         } else {
             console.error("Form element not found.");
