@@ -120,6 +120,9 @@ In the development of this project, I've used resources like the W3Schools websi
 
 - [Collapsibles/Accordion](https://www.w3schools.com/howto/howto_js_accordion.asp)
 - [Form with Multiple Steps](https://www.w3schools.com/howto/howto_js_form_steps.asp)
+- [Color, spot Palette](https://mycolor.space/?hex=%231E7DB0&sub=1sp)
+
+![Colors used](assets/images/color.png)
 
 
 ## Key topics covered here in JavaScript
