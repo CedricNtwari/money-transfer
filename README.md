@@ -136,6 +136,8 @@ JavaScript code demonstrates a solid understanding of several core web developme
 - Loops
 - Variable and Data Types
 - Error Handling
+- ES6 Modules (Import and Export)
+- Version Control (Git)
 
 ## Acknowledgements
 
