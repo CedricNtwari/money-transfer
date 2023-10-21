@@ -163,6 +163,10 @@ input[type="number"] {
     border: 1px solid var(--custom-header-footer-hover-color);
 }
 
+#receive-amount {
+    cursor: not-allowed;
+}
+
 .fee,
 .total {
     display: flex;
