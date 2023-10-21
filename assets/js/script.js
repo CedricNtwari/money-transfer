@@ -154,218 +154,136 @@ function toggleAccordion(event) {
 
 //             ------- Calculate receive amount Code ---------------
 
-import { getFeeCurrency, calculateFeeValue, handleCurrencySelectChange, handleCurrencyChosenChange } from './util.js'
-
+let isSendAmountCleared = false; // Flag to track if the send-amount has been cleared
 
 // Define exchange rates for different countries
 const exchangeRates = {
     Burundi: {
-        BIF: 3074.00,
-        EUR: 1.00,  // Example exchange rate for Euro to BIF
-        USD: 1.00,  // Example exchange rate for USD to BIF
+        BIF: 1.00,
+        EUR: 3074.00,
+        USD: 3062.00,
     },
     Rwanda: {
-        RWF: 3120.00,
-        EUR: 1.00,  // Example exchange rate for Euro to RWF
-        USD: 1.00,  // Example exchange rate for USD to RWF
-    },
-    EUR: {
-        EUR: 1.00,
-        USD: 1.18,
-    },
-    USD: {
-        EUR: 0.85,
-        USD: 1.00,
+        RWF: 1.00,
+        EUR: 3150.00,
+        USD: 3130.00,
     },
 };
 
 const sendAmountInput = document.getElementById('send-amount');
 const receiveAmountInput = document.getElementById('receive-amount');
-const exchangeRateElement = document.getElementById('exchange-rate');
 const feePrice = document.getElementById('fee-price');
 const price = document.getElementById('price');
 const countrySelect = document.getElementById('countrySelect');
-const currencySelect = document.getElementById('currency-selected');
-
+const currencySelect = document.getElementById('currency-chosed');
+const receiveCurrencySelect = document.getElementById('currency-selected');
+const exchangeRateElement = document.getElementById('exchange-rate');
 
 // Add event listeners to elements
 sendAmountInput.addEventListener('input', handleSendAmountInput);
-sendAmountInput.addEventListener('input', function () {
-    calculateFee();
-});
 sendAmountInput.addEventListener('focus', function () {
-    this.value = ''; // Clear the input
-});
-currencySelect.addEventListener('change', handleCurrencySelectChange);
-currencySelect.addEventListener('change', function () {
-    calculateFee();
-});
-document.getElementById('currency-chosed').addEventListener('change', handleCurrencyChosenChange);
-countrySelect.addEventListener('change', handleCountrySelectChange);
-
-
-/**
- * Handles input changes in the "You send" input field.
- */
-function handleSendAmountInput() {
-    // Parse the input value to a float
-    const sendAmount = parseFloat(this.value);
-    // Calculate the receive amount
-    calculateReceiveAmount(sendAmount, countrySelect.value, currencySelect.value);
-    if (!countrySelect.value) {
-        // Display an alert if no country is selected
-        alert("Please choose a country before adding the 'You send' amount.");
+    if (!isSendAmountCleared) {
+        this.value = ''; // Clear the input only if it hasn't been cleared already
+        isSendAmountCleared = true; // Set the flag to true
     }
-}
+});
+countrySelect.addEventListener('change', handleCountrySelectChange);
+currencySelect.addEventListener('change', handleCurrencyChosenChange);
 
 
 /**
- * Calculate the receive amount based on the send amount, selected country, and currency
- *   @param {*} sendAmount - Aamount to be sent
- * @param {*} selectedCountry Selected country code
- * @param {*} selectedCurrency - Selected currency code
+ * Calculates & updates receive amount and related values based on the provided input
+ *
+ * @param {number} sendAmount - Aamount to send
+ * @param {string} selectedCountry - Selected country
+ * @param {string} selectedCurrency - Selected currency
  */
 function calculateReceiveAmount(sendAmount, selectedCountry, selectedCurrency) {
-    // Check if sendAmount is a valid number and if the selected country is in exchangeRates.
     if (!isNaN(sendAmount) && selectedCountry in exchangeRates) {
-        // Get the exchange rate
         const exchangeRate = exchangeRates[selectedCountry][selectedCurrency];
+
         if (exchangeRate !== undefined) {
-            // Calculate the fee
-            calculateFee(sendAmount, selectedCurrency);
-            // Render the results
-            renderResults(sendAmount, exchangeRate, selectedCurrency);
+            let receiveCurrency;
+
+            if (selectedCountry === 'Burundi') {
+                receiveCurrency = 'BIF';
+                receiveCurrencySelect.value = 'BIF'; // Update the "They receive" currency dropdown
+            } else if (selectedCountry === 'Rwanda') {
+                receiveCurrency = 'RWF';
+                receiveCurrencySelect.value = 'RWF'; // Update the "They receive" currency dropdown
+            } else {
+                receiveCurrency = selectedCurrency;
+            }
+
+            const fee = sendAmount * 0.05;
+            const feeCurrency = selectedCurrency;
+
+            const totalAmount = sendAmount - fee;
+
+            feePrice.textContent = `+ ${fee.toFixed(2)} ${feeCurrency} (5%)`;
+            price.textContent = `${totalAmount.toFixed(2)} ${selectedCurrency}`;
+
+            exchangeRateElement.textContent = `1.00 ${selectedCurrency} = ${exchangeRate} ${receiveCurrency}`;
+            receiveAmountInput.value = (sendAmount * exchangeRate).toFixed(2);
         } else {
-            //fallback
-            // Set the currency to EUR if the exchange rate is undefined
-            currencySelect.value = 'EUR';
-            // Recalculate with EUR as the currency
-            calculateReceiveAmount(sendAmount, selectedCountry, 'EUR');
+            console.error(`Exchange rates for ${selectedCountry} and ${selectedCurrency} are not defined.`);
         }
     }
 }
 
 
 /**
- * Render the results on the page based on the calculations
- *  @param {*} sendAmount - Amount to be sent
- * @param {*} exchangeRate - Exchange rate for the selected currency
- * @param {*} selectedCurrency - Selected currency code
- */
-function renderResults(sendAmount, exchangeRate, selectedCurrency) {
-    // Calculate the fee
-    const fee = calculateFeeValue(sendAmount, selectedCurrency);
-    // Get the fee currency
-    const feeCurrency = getFeeCurrency();
-    // Calculate the total amount to be received
-    const totalAmount = sendAmount + fee;
-
-    feePrice.textContent = `+ ${fee.toFixed(2)} ${feeCurrency}`;
-    price.textContent = `${totalAmount.toFixed(2)} ${feeCurrency}`;
-    exchangeRateElement.textContent = `1.00 ${selectedCurrency} = ${exchangeRate} ${feeCurrency}`;
-    // Set the "They receive" input
-    receiveAmountInput.value = (sendAmount * exchangeRate).toFixed(2);
-}
-
-
-/**
- * Handles change event when user selects a different country
- * Updates exchange rate information, available currency options & recalculates amounts
+ * Event handler for the "change" event of the country select input
  */
 function handleCountrySelectChange() {
-    // Get selected country from the user input
     const selectedCountry = this.value;
-    // Get selected currency for receiving
     const selectedCurrency = currencySelect.value;
+    calculateReceiveAmount(parseFloat(sendAmountInput.value), selectedCountry, selectedCurrency);
 
-    if (selectedCountry in exchangeRates) {
-        // Check if exchange rate for the selected currency is defined
-        const exchangeRate = exchangeRates[selectedCountry][selectedCurrency];
-        if (exchangeRate !== undefined) {
-            const exchangeRateElement = document.getElementById('exchange-rate');
-            // Update displayed exchange rate
-            exchangeRateElement.textContent = `1.00 ${selectedCurrency} = ${exchangeRate} (${selectedCountry})`;
-        }
-
-        // Update available currency options based on selected country
-        updateAvailableCurrencyOptions(selectedCountry);
-        // Get send amount as a numeric value
-        const sendAmount = parseFloat(sendAmountInput.value);
-        // Recalculate receive amount and related values
-        calculateReceiveAmount(sendAmount, selectedCountry, selectedCurrency);
-    }
+    // Display the selected country's currency symbol
+    const countryCurrencySymbol = getCountryCurrencySymbol(selectedCountry);
+    const receiveAmountLabel = document.querySelector('label[for="receive-amount"]');
+    receiveAmountLabel.textContent = `They receive (${countryCurrencySymbol}):`;
 }
 
 
-
 /**
- * Calculates & updates fee amount based on selected currency & send amount
- * Also updates the displayed fee price on the page.
+ * Event handler for the "input" event of the send-amount input
  */
-function calculateFee() {
-    // Parse user's input as a numeric value
-    const sendAmount = parseFloat(sendAmountInput.value);
-    // Get selected currency for calculating the fee
-    const selectedCurrency = currencySelect.value;
-
-    if (!isNaN(sendAmount)) {
-        // Check if send amount is a valid number
-        let feePercentage;
-
-        if (selectedCurrency === 'EUR') {
-            feePercentage = 0.07; // 7% fee for EUR
-        } else if (selectedCurrency === 'USD') {
-            feePercentage = 0.06; // 6% fee for USD
-        } else if (selectedCurrency === 'BIF' || selectedCurrency === 'RWF') {
-            feePercentage = 0.05; // 5% fee for BIF and RWF
-        } else {
-            // Fallback to a default fee percentage if the currency is not recognized
-            feePercentage = 0.05;
-        }
-
-        // Calculate fee amount
-        const fee = sendAmount * feePercentage;
-
-        // Update & renders fee price
-        feePrice.textContent = `+ ${fee.toFixed(2)} ${getFeeCurrency()} (${(feePercentage * 100).toFixed(2)} %)`;
+function handleSendAmountInput() {
+    const sendAmount = parseFloat(this.value);
+    if (!countrySelect.value) {
+        alert("Please choose a country before adding the 'You send' amount.");
+    } else {
+        calculateReceiveAmount(sendAmount, countrySelect.value, currencySelect.value);
     }
 }
 
 
 /**
- * Updates available currency options based on selected country & optionally the selected currency
- * It also sets & selected currency to first available currency if necessary
- *
- * @param {string} selectedCountry - Selected country
- * @param {string} selectedCurrency - Selected currency, if provided
+ * Event handler for the "change" event of the currency select input
  */
-function updateAvailableCurrencyOptions(selectedCountry, selectedCurrency) {
+function handleCurrencyChosenChange() {
     const sendAmount = parseFloat(sendAmountInput.value);
-
-    // To execute only when a country and a valid amount are selected.
-    // Otherwise, potential errors are shown until the user provides the required input
-    if (selectedCountry && !isNaN(sendAmount)) {
-        if (exchangeRates[selectedCountry]) {
-            const availableCurrencies = Object.keys(exchangeRates[selectedCountry]);
-            for (let i = 0; i < currencySelect.options.length; i++) {
-                const option = currencySelect.options[i];
-                if (availableCurrencies.includes(option.value)) {
-                    option.style.display = 'block';
-                } else {
-                    option.style.display = 'none';
-                }
-            }
-
-            // Set selected currency to the first available currency if it's not already selected
-            if (!availableCurrencies.includes(selectedCurrency)) {
-                currencySelect.value = availableCurrencies[0];
-                selectedCurrency = availableCurrencies[0];
-            }
-        } else {
-            console.error(`Exchange rates for ${selectedCountry} are not defined.`);
-        }
-    }
-    // Calculate receive amount with updated selected country & currency
+    const selectedCountry = countrySelect.value;
+    const selectedCurrency = currencySelect.value;
     calculateReceiveAmount(sendAmount, selectedCountry, selectedCurrency);
 }
 
+
+/**
+ * Get the currency symbol for a selected country
+ *
+ * @param {string} selectedCountry - Selected country
+ * @returns {string} - Currency symbol
+ */
+function getCountryCurrencySymbol(selectedCountry) {
+    switch (selectedCountry) {
+        case 'Burundi':
+            return 'BIF';
+        case 'Rwanda':
+            return 'RWF';
+        default:
+            receiveCurrencySelect.value = currencySelect.value;
+    }
+}
