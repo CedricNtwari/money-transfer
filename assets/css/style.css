@@ -187,6 +187,7 @@ input[type="number"] {
 #currency-select select {
     border: none;
     height: 30px;
+    cursor: not-allowed;
 }
 
 #currency-chose {
