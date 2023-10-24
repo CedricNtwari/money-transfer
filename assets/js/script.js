@@ -159,14 +159,59 @@ let isSendAmountCleared = false; // Flag to track if the send-amount has been cl
 // Define exchange rates for different countries
 const exchangeRates = {
     Burundi: {
-        EUR: 3074.00,
-        USD: 3062.00,
+        EUR: null,
+        USD: null,
     },
     Rwanda: {
-        EUR: 3150.00,
-        USD: 3130.00,
+        EUR: null,
+        USD: null,
     },
 };
+
+console.log('exchangeRates: ',exchangeRates)
+
+// Function to fetch exchange rate data for a specific currency pair
+async function fetchExchangeRate(baseCurrency, targetCurrency) {
+    const apiUrl = `https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/${baseCurrency.toLowerCase()}/${targetCurrency.toLowerCase()}.json`;
+
+    try {
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+        // Round the exchange rate value to the nearest whole number
+        const exchangeRate = Math.round(data[targetCurrency.toLowerCase()]);
+        return exchangeRate;
+    } catch (error) {
+        console.error(`Error fetching exchange rate (${baseCurrency} to ${targetCurrency}):`, error);
+        return null;
+    }
+}
+
+// Function to update the exchangeRates object with specific exchange rate data
+async function updateExchangeRates() {
+    // Fetch exchange rate data for EUR to BIF
+    exchangeRates.Burundi.EUR = await fetchExchangeRate("eur", "bif");
+
+    // Fetch exchange rate data for USD to BIF
+    exchangeRates.Burundi.USD = await fetchExchangeRate("usd", "bif");
+
+    // Fetch exchange rate data for EUR to RWF
+    exchangeRates.Rwanda.EUR = await fetchExchangeRate("eur", "rwf");
+
+    // Fetch exchange rate data for USD to RWF
+    exchangeRates.Rwanda.USD = await fetchExchangeRate("usd", "rwf");
+}
+
+// Variable to track if exchange rate data has been loaded
+let hasLoadedExchangeRateData = false;
+
+// Fetch exchange rate data only on the first load if not already loaded
+if (!hasLoadedExchangeRateData) {
+    updateExchangeRates().then(function() {
+        hasLoadedExchangeRateData = true;
+        // Continue with calculations & UI updates
+    });
+}
+
 
 const sendAmountInput = document.getElementById('send-amount');
 const receiveAmountInput = document.getElementById('receive-amount');
@@ -216,7 +261,7 @@ function calculateReceiveAmount(sendAmount, selectedCountry, selectedCurrency) {
             const fee = sendAmount * 0.05;
             const feeCurrency = selectedCurrency;
 
-            const totalAmount = sendAmount - fee;
+            const totalAmount = sendAmount + fee;
 
             feePrice.textContent = `+ ${fee.toFixed(2)} ${feeCurrency} (5%)`;
             price.textContent = `${totalAmount.toFixed(2)} ${selectedCurrency}`;
