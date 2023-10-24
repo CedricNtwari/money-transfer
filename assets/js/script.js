@@ -168,7 +168,6 @@ const exchangeRates = {
     },
 };
 
-console.log('exchangeRates: ',exchangeRates)
 
 // Function to fetch exchange rate data for a specific currency pair
 async function fetchExchangeRate(baseCurrency, targetCurrency) {
