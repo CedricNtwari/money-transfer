@@ -1,11 +1,13 @@
 # Money Transfer Financial Platform
 
-Welcome to the Money Transfer Financial Platform, a solution for all your currency exchange and money transfer needs. This platform is designed to simplify the process of sending money across borders while providing real-time exchange rate information, ensuring that both senders and recipients have full visibility into the transaction.
+Welcome to the Money Transfer Financial Platform, a dedicated solution tailored to the diaspora community. This platform simplifies the process of sending money to loved ones in Burundi and Rwanda, while providing real-time exchange rate information, ensuring that both senders and recipients have full visibility into their financial transactions. 
+
 
 This platfrom offers a range of services: 
+
 - **Currency Conversion:** Using exchange rates, this code enables users to convert a certain sum between different currencies. The user can choose the country of destination then enter the desired amount ("You Send"), and see the desired currency ("They Receive"). The amount the recipient will receive is determined by the code using currency rates, and it is displayed in the "They Receive" input area.
 
-- **Various payment options:** such as bank deposit, mobile money via an app, and cash withdrawal for delivery methods.
+- **Flexible payment options:** such as bank deposit, mobile money via an app, and cash withdrawal for delivery methods.
 
 - **Fee Calculation:** A fee is computed by the code based on the amount and selected currency that the user wishes to transmit. The chosen currency (for example, EUR, USD, BIF, or RWF) determines the fee percentage. The charge amount is shown to the user as a percentage of the "You Send" amount as well as a numeric value.
 
@@ -59,24 +61,28 @@ With these UX stories, we aim to prioritize both the user's needs and the strate
 
 ## Features
 
-**1. Real-time Exchange Rates:** Access real-time exchange rate information for various currencies, including EUR, USD, BIF, and RWF, to facilitate the user to make an informed decisions for your financial transactions.
+**1. Currency Exchange API Integration:** This integration provides users with real-time and up-to-date currency exchange rates, ensuring that you have access to the most accurate information when sending money.
 
-**2. Multiple Step Money Transfer:** The transfer process has been simplified into easy-to-follow steps, ensuring a seamless and secure experience.
+**2. Real-time Exchange Rates:** Access real-time exchange rate information for various currencies, including EUR, USD, BIF, and RWF, to facilitate the user to make an informed decisions for your financial transactions.
 
-**3. Accordions for Easy Navigation:** The user-friendly interface incorporates accordions for a smooth and intuitive navigation experience.
+**3. Multiple Step Money Transfer:** The transfer process has been simplified into easy-to-follow steps, ensuring a seamless and secure experience.
 
-**4. Navigation & Footer for Quick Access:** A well-designed navigation & footer with essential links and information, allowing users to quickly navigate to the home page of the platform and our social platforms and customer support.
+**4. Accordions for Easy Navigation:** The user-friendly interface incorporates accordions for a smooth and intuitive navigation experience.
 
-**5. Robust Security:** The platform employs security measures to safeguard your financial data and protect your privacy. We adhere to industry-standard for basic security protocols to ensure your peace of mind.
+**5. Navigation & Footer for Quick Access:** A well-designed navigation & footer with essential links and information, allowing users to quickly navigate to the home page of the platform and our social platforms and customer support.
+
+**6. Robust Security:** The platform employs security measures to safeguard your financial data and protect your privacy. We adhere to industry-standard for basic security protocols to ensure your peace of mind.
 
 ## Color Palette
 
 Inspired by the 100 CHF Swiss note, the color scheme is characterized by the following:
 
 - **Primary Color:** [--primary-color: #1E7DB0]
-- **Secondary Color:** [--secondary-color: #ffaa80]
+- **Secondary Color:** [--secondary-color: #E79C25]
 
 ![100 swiss franc](assets/images/100note.png)
+
+![Colors used](assets/images/color.png)
 
 These colors reflect the elegance and sophistication of Swiss currency and create a visually appealing user experience.
 
@@ -112,17 +118,19 @@ This project is hosted hosting platform on GitHub.
 
 ## Improvements
 
-- **Currency Exchange API Integration (Future Development):** One of the upcoming enhancements for this platform is the integration of a currency exchange API. This integration will provide users with real-time and up-to-date currency exchange rates, ensuring that you have access to the most accurate information when sending money across borders.
+- **Currency Exchange API Integration (Future Development):** Expanding the currency exchange API integration to include all countries and currencies worldwide.
 
 ## Credits
 
-In the development of this project, I've used resources like the W3Schools website to learn and implement key web development concepts
+In the development of this project, I've used resources like the W3Schools website to learn and implement key web development concepts.
 
+Additionally, I'd like to give credit to the creators of the currency API for providing valuable currency exchange rate data for this project. Kudos to them for their contribution.
+
+- [Currency API](https://github.com/fawazahmed0/currency-api)
 - [Collapsibles/Accordion](https://www.w3schools.com/howto/howto_js_accordion.asp)
 - [Form with Multiple Steps](https://www.w3schools.com/howto/howto_js_form_steps.asp)
 - [Color, spot Palette](https://mycolor.space/?hex=%231E7DB0&sub=1sp)
 
-![Colors used](assets/images/color.png)
 
 
 ## Key topics covered here in JavaScript
