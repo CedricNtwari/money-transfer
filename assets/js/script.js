@@ -159,12 +159,10 @@ let isSendAmountCleared = false; // Flag to track if the send-amount has been cl
 // Define exchange rates for different countries
 const exchangeRates = {
     Burundi: {
-        BIF: 1.00,
         EUR: 3074.00,
         USD: 3062.00,
     },
     Rwanda: {
-        RWF: 1.00,
         EUR: 3150.00,
         USD: 3130.00,
     },
