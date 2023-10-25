@@ -57,7 +57,7 @@ This platfrom offers a range of services:
 ## Troubleshooting
 
 If you encounter any issues or errors while using the Money Transfer Financial Platform, please get in touch ntwaricedric@gmail.com.
-
+s
 ## Contributor Guidelines
 
  I welcome contributions from the community to improve and expand the Money Transfer Financial Platform. If you'd like to contribute, please get in touch ntwaricedric@gmail.com.
@@ -73,7 +73,16 @@ Install the project dependencies using: npm install
 
 ## Architecture Insight
 
-The Money Transfer Financial Platform follows a modular architecture and is built with HTML, CSS, and JavaScript.
+The Money Transfer Financial Platform follows a modular architecture and is built with HTML, CSS and JavaScript.
+
+### Technologies used
+
+ - Google Fonts https://fonts.google.com/ 
+ - Font Awesome https://fontawesome.com/ 
+ - Chrome Dev tools
+ - Github
+ - Git
+
 
 ## User Goals
 
