@@ -329,7 +329,6 @@ input[type="number"] {
 }
 
 #message::placeholder {
-    color: red;
     font-style: italic; 
 }
 
