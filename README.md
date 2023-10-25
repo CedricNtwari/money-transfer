@@ -23,6 +23,7 @@ Welcome to the Money Transfer Financial Platform, a dedicated solution tailored 
 15. [Key topics covered here in JavaScript](#key-topics-covered-here-in-javascript)
 16. [Acknowledgements](#acknowledgements)
 17. [Codeanywhere Reminders](#codeanywhere-reminders)
+18. [FAQ](#faq)
 
 
 ## Getting Started
@@ -191,4 +192,12 @@ To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere, in t
 A button should appear to click: _Open Preview_ or _Open Browser_.
 
 To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere with no-cache, you can use this alias for `python3 -m http.server`.
+
+
+## FAQ
+
+If you have additional questions or need further assistance, please don't hesitate to contact our support team at ntwaricedric@gmail.com.
+
+Happy using the Money Transfer Financial Platform!
+
 
