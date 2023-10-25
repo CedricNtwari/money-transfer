@@ -347,6 +347,10 @@ input[type="number"] {
     border-radius: 8px;
 }
 
+.company-account {
+    letter-spacing: 1px;
+}
+
 
 /* Form Content buttons */
 .button-container {
