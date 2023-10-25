@@ -55,6 +55,10 @@ a {
     text-decoration: none;
 }
 
+.hide {
+    display:none;
+}
+
 /* Header */
 header {
     background-color: var(--primary-color);
@@ -256,6 +260,7 @@ input[type="number"] {
 
 .radio-buttons {
     padding-bottom: 1rem;
+    padding-top: 0.5rem;
 }
 
 .radio {
@@ -321,6 +326,11 @@ input[type="number"] {
 #message {
     margin: 0.5rem 0;
     padding: 0.5rem;
+}
+
+#message::placeholder {
+    color: red;
+    font-style: italic; 
 }
 
 /* Import images */

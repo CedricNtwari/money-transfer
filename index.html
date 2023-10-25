@@ -16,7 +16,6 @@
     <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon_io/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon_io/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon_io/favicon-16x16.png">
-    <link rel="manifest" href="assets/favicon_io/site.webmanifest">
 
     <!-- Link CSS Stylesheets -->
     <link rel="stylesheet" href="assets/css/style.css">
@@ -101,7 +100,8 @@
                 <button class="accordion">Bank Deposit</button>
                 <div class="panel">
                     <div class="radio-buttons">
-                        <label class="exchange-changes">Choose your Bank </label>
+                        <label for="exchange-change" class="exchange-changes">Choose your Bank </label>
+                        <input id="exchange-change" class="hide">
                         <div class="radio-container">
                             <div class="radio">
                                 <label for="bcb">BCB </label>
@@ -135,7 +135,8 @@
                 <button class="accordion">Mobile Money</button>
                 <div class="panel">
                     <div class="radio-buttons">
-                        <label class="exchange-changes">Choose One Mobile App </label>
+                        <label for="exchange-changes" class="exchange-changes">Choose One Mobile App </label>
+                        <input id="exchange-changes" class="hide">
                         <div class="radio-container">
                             <div class="radio">
                                 <label for="ecocash">EcoCash </label>
@@ -152,7 +153,7 @@
                         <label for="fullname">Full Name </label>
                     </div>
                     <div class="sender-input">
-                        <input type="number" name="phone" id="phone" required>
+                        <input type="number" name="phone" id="phone" required autocomplete="tel">
                         <label for="phone">Phone </label>
                     </div>
                 </div>
@@ -171,7 +172,6 @@
             <div id="tab3" class="tab">
                 <label for="message"> Receiver Details: </label>
                 <p class="exchange-changes">Kindly provide recipient details, and we'll reply within 24 hours.</p>
-                <br >
                 <textarea id="message" name="message" rows="9" cols="30"
                     placeholder="Add the receiver details or any special requests/questions" required>
                 </textarea>
