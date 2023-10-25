@@ -2,36 +2,82 @@
 
 Welcome to the Money Transfer Financial Platform, a dedicated solution tailored to the diaspora community. This platform simplifies the process of sending money to loved ones in Burundi and Rwanda, while providing real-time exchange rate information, ensuring that both senders and recipients have full visibility into their financial transactions. 
 
+![Money Transfer Financial Platform](assets/images/ui.png)
+
+## Table of Contents
+
+1. [Getting Started](#getting-started)
+2. [Features](#features)
+3. [Troubleshooting](#troubleshooting)
+4. [Contributor Guidelines](#contributor-guidelines)
+5. [Environment Setup](#environment-setup)
+6. [Architecture Insight](#architecture-insight)
+7. [Documentation Hub](#documentation-hub)
+8. [User Goals](#user-goals)
+9. [UX Stories](#ux-stories)
+10. [Color Palette](#color-palette)
+11. [Testing](#testing)
+12. [Deployment](#deployment)
+13. [Improvements](#improvements)
+14. [Credits](#credits)
+15. [Key topics covered here in JavaScript](#key-topics-covered-here-in-javascript)
+16. [Acknowledgements](#acknowledgements)
+17. [Codeanywhere Reminders](#codeanywhere-reminders)
+
+
+## Getting Started
+
+Follow these steps to get the Money Transfer Financial Platform up and running on your local machine.
+
+1. Clone this repository to your local machine: git clone https://github.com/cedricntwari/money-transfer.git. 
+
+2. Navigate to the project directory: cd money-transfer.
+3. Open the `index.html` file in your preferred web browser.
+
+## Features
 
 This platfrom offers a range of services: 
 
 - **Currency Conversion:** Using exchange rates, this code enables users to convert a certain sum between different currencies. The user can choose the country of destination then enter the desired amount ("You Send"), and see the desired currency ("They Receive"). The amount the recipient will receive is determined by the code using currency rates, and it is displayed in the "They Receive" input area.
 
-- **Flexible payment options:** such as bank deposit, mobile money via an app, and cash withdrawal for delivery methods.
+![Currency Conversion](assets/images/conversion.png)
+
+- **Flexible payment options:** such as local bank deposit, mobile money via local Apps, and cash withdrawal for delivery methods.
+
+![Flexible payment options](assets/images/payment.png)
 
 - **Fee Calculation:** A fee is computed by the code based on the amount and selected currency that the user wishes to transmit. The chosen currency (for example, EUR, USD, BIF, or RWF) determines the fee percentage. The charge amount is shown to the user as a percentage of the "You Send" amount as well as a numeric value.
 
 - **Real-time Updates:** As the user enters data into the input fields, the code updates in real-time. For instance, the "They Receive" amount, fee, and total amount are all instantly recalculated and displayed whenever the user modifies the "You Send" amount or chooses a different currency.
 
+![Real-time Updates](assets/images/currency.png)
+
 - **User Interface Interactions:** The code contains event listeners for a variety of user activities, such as clearing the "You Send" field by clicking on it, confirming the user's selection of a destination nation, and updating the UI when the user modifies the available currencies.
 
-![Money Transfer Financial Platform](assets/images/ui.png)
+## Troubleshooting
 
-## Table of Contents
+If you encounter any issues or errors while using the Money Transfer Financial Platform, please get in touch ntwaricedric@gmail.com.
 
-1. [UX Stories](#ux-stories)
-2. [Features](#features)
-3. [Color Palette](#color-palette)
-4. [Technologies](#technologies)
-5. [Testing](#testing)
-6. [Deployment](#deployment)
-7. [Credit](#credit)
-8. [Improvements](#improvements)
-9. [Contributions](#contributions)
-10. [Credit](#credit)
-11. [Key topics covered here in JavaScript](#key-topics-covered-here-in-javaScript)
-12. [Acknowledgements](#acknowledgements)
-13. [Codeanywhere Reminders](#codeanywhere-reminders)
+## Contributor Guidelines
+
+ I welcome contributions from the community to improve and expand the Money Transfer Financial Platform. If you'd like to contribute, please get in touch ntwaricedric@gmail.com.
+
+## Environment Setup
+
+Before working on the project, make sure you have the following tools and dependencies installed:
+
+- [Node.js](https://nodejs.org/)
+- [npm](https://www.npmjs.com/)
+
+Install the project dependencies using: npm install
+
+## Architecture Insight
+
+The Money Transfer Financial Platform follows a modular architecture and is built with HTML, CSS, and JavaScript.
+
+## Documentation Hub
+
+Explore our [Documentation Hub](docs/documentation-hub.md) for in-depth guides, API documentation, and more.
 
 ## User Goals
 
@@ -59,20 +105,6 @@ This platfrom offers a range of services:
 
 With these UX stories, we aim to prioritize both the user's needs and the strategic goals of our platform.
 
-## Features
-
-**1. Currency Exchange API Integration:** This integration provides users with real-time and up-to-date currency exchange rates, ensuring that you have access to the most accurate information when sending money.
-
-**2. Real-time Exchange Rates:** Access real-time exchange rate information for various currencies, including EUR, USD, BIF, and RWF, to facilitate the user to make an informed decisions for your financial transactions.
-
-**3. Multiple Step Money Transfer:** The transfer process has been simplified into easy-to-follow steps, ensuring a seamless and secure experience.
-
-**4. Accordions for Easy Navigation:** The user-friendly interface incorporates accordions for a smooth and intuitive navigation experience.
-
-**5. Navigation & Footer for Quick Access:** A well-designed navigation & footer with essential links and information, allowing users to quickly navigate to the home page of the platform and our social platforms and customer support.
-
-**6. Robust Security:** The platform employs security measures to safeguard your financial data and protect your privacy. We adhere to industry-standard for basic security protocols to ensure your peace of mind.
-
 ## Color Palette
 
 Inspired by the 100 CHF Swiss note, the color scheme is characterized by the following:
@@ -85,10 +117,6 @@ Inspired by the 100 CHF Swiss note, the color scheme is characterized by the fol
 ![Colors used](assets/images/color.png)
 
 These colors reflect the elegance and sophistication of Swiss currency and create a visually appealing user experience.
-
-## Technologies
-
-- **Frontend:** We use a combination of HTML, CSS, and JavaScript to deliver a responsive and visually appealing user interface.
 
 ## Testing
 
