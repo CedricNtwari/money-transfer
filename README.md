@@ -12,18 +12,17 @@ Welcome to the Money Transfer Financial Platform, a dedicated solution tailored 
 4. [Contributor Guidelines](#contributor-guidelines)
 5. [Environment Setup](#environment-setup)
 6. [Architecture Insight](#architecture-insight)
-7. [Documentation Hub](#documentation-hub)
-8. [User Goals](#user-goals)
-9. [UX Stories](#ux-stories)
-10. [Color Palette](#color-palette)
-11. [Testing](#testing)
-12. [Deployment](#deployment)
-13. [Improvements](#improvements)
-14. [Credits](#credits)
-15. [Key topics covered here in JavaScript](#key-topics-covered-here-in-javascript)
-16. [Acknowledgements](#acknowledgements)
-17. [Codeanywhere Reminders](#codeanywhere-reminders)
-18. [FAQ](#faq)
+7. [User Goals](#user-goals)
+8. [UX Stories](#ux-stories)
+9. [Color Palette](#color-palette)
+10. [Testing](#testing)
+11. [Deployment](#deployment)
+12. [Improvements](#improvements)
+13. [Credits](#credits)
+14. [Key topics covered here in JavaScript](#key-topics-covered-here-in-javascript)
+15. [Acknowledgements](#acknowledgements)
+16. [Codeanywhere Reminders](#codeanywhere-reminders)
+17. [FAQ](#faq)
 
 
 ## Getting Started
@@ -75,10 +74,6 @@ Install the project dependencies using: npm install
 ## Architecture Insight
 
 The Money Transfer Financial Platform follows a modular architecture and is built with HTML, CSS, and JavaScript.
-
-## Documentation Hub
-
-Explore our [Documentation Hub](docs/documentation-hub.md) for in-depth guides, API documentation, and more.
 
 ## User Goals
 
