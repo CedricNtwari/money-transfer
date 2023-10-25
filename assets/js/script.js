@@ -170,7 +170,12 @@ const exchangeRates = {
 };
 
 
-// Function to fetch exchange rate data for a specific currency pair
+/**
+ * Fetch exchange rate data for a specific currency pair
+ * @param {*} baseCurrency - base currency code (e.g., EUR).
+ * @param {*} targetCurrency - target currency code (e.g., BIF)
+ * @returns - exchange rate
+ */
 async function fetchExchangeRate(baseCurrency, targetCurrency) {
     const apiUrl = `https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/${baseCurrency.toLowerCase()}/${targetCurrency.toLowerCase()}.json`;
 
@@ -186,7 +191,10 @@ async function fetchExchangeRate(baseCurrency, targetCurrency) {
     }
 }
 
-// Function to update the exchangeRates object with specific exchange rate data
+
+/**
+ * update the exchangeRates object with specific exchange rate data
+ */
 async function updateExchangeRates() {
     // Fetch exchange rate data for EUR to BIF
     exchangeRates.Burundi.EUR = await fetchExchangeRate("eur", "bif");
