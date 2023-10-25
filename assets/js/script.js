@@ -2,8 +2,9 @@
    This JSHint directive is used to specify the ECMAScript version for the code. 
    Setting it to ES6 (ECMAScript 2015) allows us to use ES6 features like 'const' and 'let'. 
    Without this directive, JSHint may produce an error when encountering ES6 syntax.
+   'async functions' is only available in ES8 (use 'esversion: 8').
 */
-/* jshint esversion: 6 */
+/* jshint esversion: 8 */
 
 //                       --------- form tab navigation Code---------------
 
