@@ -54,6 +54,23 @@ This platfrom offers a range of services:
 
 - **User Interface Interactions:** The code contains event listeners for a variety of user activities, such as clearing the "You Send" field by clicking on it, confirming the user's selection of a destination nation, and updating the UI when the user modifies the available currencies.
 
+- **Chatbase Chatbot:** A chatbot build by Chatbase,an AI chatbot builder that trains ChatGPT with this web APP data.
+The Chatbase chatbot is designed to provide real-time assistance, answer your questions, and offer support related to our services.
+
+   - How to access the Chatbot
+   The user can access the Chatbase chatbot by clicking the chat icon located in the bottom-right corner of the website. The chatbot is active to assist users 24/7, making it easier than ever to get the help that users need.
+
+   - Chatbot Functionality
+
+    This Chatbase chatbot can help with a wide range of inquiries and tasks, including:
+
+   - Providing information about our money transfer services.
+   - Answering questions about exchange rates and fees.
+   - Assisting with troubleshooting and common issues.
+   - Offering guidance on using our platform effectively.
+
+![Chatbase Chatbot](assets/images/chatbot.png)
+
 ## Troubleshooting
 
 If you encounter any issues or errors while using the Money Transfer Financial Platform, please get in touch ntwaricedric@gmail.com.
