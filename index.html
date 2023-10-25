@@ -28,7 +28,7 @@
     <!-- Header -->
     <header>
         <a href="index.html">
-            <h1 id="logo"><i class="fa-solid fa-money-bill-wheat"></i>  Money Transfer</h1>
+            <h1 id="logo"><i class="fa-solid fa-money-bill-wheat"></i> Money Transfer</h1>
         </a>
     </header>
 
@@ -43,13 +43,13 @@
                     <h2>Select the destination country</h2>
                     <!-- Custom select box & Country names -->
                     <div class="custom-select">
-                      <label id="countryLabel" for="countrySelect"></label>
-                      <select class="form-select" id="countrySelect" name="countrySelect" aria-label="Select Country">
-                        <option value=""> 🌍 Country</option>
-                        <option value="Burundi"> 🇧🇮 Burundi</option>
-                        <option value="Rwanda"> 🇷🇼 Rwanda</option>
-                      </select>
-                      <i class="fa-solid fa-magnifying-glass"></i>
+                        <label id="countryLabel" for="countrySelect"></label>
+                        <select class="form-select" id="countrySelect" name="countrySelect" aria-label="Select Country">
+                            <option value=""> 🌍 Country</option>
+                            <option value="Burundi"> 🇧🇮 Burundi</option>
+                            <option value="Rwanda"> 🇷🇼 Rwanda</option>
+                        </select>
+                        <i class="fa-solid fa-magnifying-glass"></i>
                     </div>
                 </div>
                 <div class="text-input">
@@ -172,9 +172,11 @@
             <div id="tab3" class="tab">
                 <label for="message"> Receiver Details: </label>
                 <p class="exchange-changes">Kindly provide recipient details, and we'll reply within 24 hours.</p>
-                <textarea id="message" name="message" rows="9" cols="30"placeholder="Add the receiver details or any special requests/questions"></textarea>
+                <textarea id="message" name="message" rows="9" cols="30"
+                    placeholder="Add the receiver details or any special requests/questions"></textarea>
                 <div class="company-account">
-                    <p class="cash-withdraw">Kindly remit the total funds, <br> and your transaction will be processed within 24 hours.</p>
+                    <p class="cash-withdraw">Kindly remit the total funds, <br> and your transaction will be processed
+                        within 24 hours.</p>
                     <p class="cash-withdraw">CH93 0072 2011 6238</p>
                 </div>
                 <div class="file">
@@ -185,7 +187,7 @@
 
             <!-- Form buttons -->
             <div class="button-container">
-                <button type="button" id="prevBtn" class="btn"><i class="fa-solid fa-caret-left"></i>  Previous</button>
+                <button type="button" id="prevBtn" class="btn"><i class="fa-solid fa-caret-left"></i> Previous</button>
                 <button type="button" id="continueBtn" class="btn"></button>
             </div>
         </form>
@@ -213,8 +215,8 @@
             </li>
         </ul>
         <div class="contact-information">
-            <p><i class="fa-solid fa-phone"></i>  +356 2124 9200</p>
-            <p><i class="fa-regular fa-envelope"></i>  ntwaricedric@gmail.com</p>
+            <p><i class="fa-solid fa-phone"></i> +356 2124 9200</p>
+            <p><i class="fa-regular fa-envelope"></i> ntwaricedric@gmail.com</p>
         </div>
         <p id="author">Built and designed by Jean Cédric Ntwari</p>
     </footer>
@@ -223,6 +225,16 @@
 
     <!-- Font awesome kit -->
     <script src="https://kit.fontawesome.com/c0241e8eb0.js" crossorigin="anonymous"></script>
+
+    <!-- Custom ChatGPT Chatpot using Chatbase https://www.chatbase.co/  -->
+    <script>
+        window.embeddedChatbotConfig = {
+            chatbotId: "k1i8Nyi7TLcS5ThhrSsDG",
+            domain: "www.chatbase.co"
+        }
+    </script>
+    <script src="https://www.chatbase.co/embed.min.js" chatbotId="k1i8Nyi7TLcS5ThhrSsDG" domain="www.chatbase.co" defer>
+    </script>
 </body>
 
 </html>
