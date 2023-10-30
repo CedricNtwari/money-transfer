@@ -316,8 +316,7 @@ input[type="number"] {
 
 
 /* On focus with cursor input text should move up */
-.sender-input input:focus~label,
-.sender-input input:valid~label {
+.sender-input input:focus~label {
     top: -20px;
     left: 0;
     color: var(--tertiary-color);
