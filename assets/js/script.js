@@ -80,8 +80,18 @@ function updateButtonLabels(prevBtn, continueBtn, i, totalTabs) {
  * @returns {boolean} - Returns `false` if any field in the current tab is invalid and prevents navigation.
  * 
  */
-function continueButton(n) {
+ function continueButton(n) {
     const tab = document.getElementsByClassName("tab");
+
+    // Check if the current tab is the last tab
+    const isLastTab = currentTab === tab.length - 1;
+
+    // If it's the last tab and the user is trying to submit, check message and image fields
+    if (isLastTab && n === 1) {
+        if (!validateForm()) {
+            return false; // Prevent form submission if fields are empty
+        }
+    }
 
     // Hide the current tab:
     tab[currentTab].style.display = "none";
@@ -101,7 +111,7 @@ function continueButton(n) {
             setTimeout(function () {
                 window.location.reload();
             }, 10);
-            //submit form
+            // Submit form
             form.submit();
         } else {
             console.error("Form element not found.");
@@ -112,6 +122,26 @@ function continueButton(n) {
     // Otherwise, display the correct tab:
     displayTab(currentTab);
 }
+
+
+/**
+ * 
+ * Validate form
+ */
+function validateForm() {
+    const messageTextarea = document.getElementById('message');
+    const imageInput = document.getElementById('image');
+    
+    if (messageTextarea.value.trim() === '' || imageInput.files.length === 0) {
+        alert('Please fill in the message and attach an image.');
+        // Prevent form submission
+        return false; 
+    }
+    
+    // Proceed with form submission
+    return true;
+}
+
 
 // Add event listeners for the buttons in your script
 document.getElementById("prevBtn").addEventListener("click", function () {
