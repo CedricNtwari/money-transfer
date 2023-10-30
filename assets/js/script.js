@@ -152,7 +152,7 @@ document.getElementById("continueBtn").addEventListener("click", function () {
     // Check if the "You send" input is empty or 0
     const sendAmount = parseFloat(sendAmountInput.value);
     if (isNaN(sendAmount) || sendAmount <= 0 || sendAmount <= 50) {
-        showNotification("Please enter an amount of at least 50 euros or 50 USD", 'error');
+        showNotification("Please enter an amount of at least 50 euros or 50 USD. ", 'error');
         return; // Prevent continuing if the input is invalid
     }
 
