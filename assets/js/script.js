@@ -310,6 +310,7 @@ function handleSendAmountInput() {
         receiveAmountInput.value = '0.00';
         feePrice.textContent = '+ 0.00 ' + selectedCurrency + ' (5%)';
         price.textContent = '0.00 ' + selectedCurrency;
+        this.placeholder = '0.00'; // Add the placeholder value
     } else {
         calculateReceiveAmount(sendAmount, selectedCountry, selectedCurrency);
     }
