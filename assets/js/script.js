@@ -250,6 +250,7 @@ sendAmountInput.addEventListener('focus', function () {
 });
 countrySelect.addEventListener('change', handleCountrySelectChange);
 currencySelect.addEventListener('change', handleCurrencyChosenChange);
+currencySelect.addEventListener('change', handleCurrencyChosenChange);
 
 // Set the default country to Burundi
 countrySelect.value = 'Burundi';
