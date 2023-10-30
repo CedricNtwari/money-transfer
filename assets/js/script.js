@@ -241,6 +241,12 @@ sendAmountInput.addEventListener('focus', function () {
 countrySelect.addEventListener('change', handleCountrySelectChange);
 currencySelect.addEventListener('change', handleCurrencyChosenChange);
 
+// Set the default country to Burundi
+countrySelect.value = 'Burundi';
+
+// Call the function to initialize the page with default values
+handleCountrySelectChange();
+
 
 /**
  * Calculates & updates receive amount and related values based on the provided input
@@ -290,6 +296,11 @@ function handleCountrySelectChange() {
     const selectedCountry = this.value;
     const selectedCurrency = currencySelect.value;
     calculateReceiveAmount(parseFloat(sendAmountInput.value), selectedCountry, selectedCurrency);
+
+    // Set the default "They receive" currency to "BIF" for Burundi
+    const receiveCurrency = selectedCountry === 'Burundi' ? 'BIF' : selectedCurrency;
+    receiveCurrencySelect.value = receiveCurrency;
+
 
     // Display the selected country's currency symbol
     const countryCurrencySymbol = getCountryCurrencySymbol(selectedCountry);
