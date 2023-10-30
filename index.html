@@ -105,19 +105,19 @@
                         <div class="radio-container">
                             <div class="radio">
                                 <label for="bcb">BCB </label>
-                                <input type="radio" name="bank_deposit" id="bcb" value="bcb">
+                                <input type="radio" name="bank_deposit" id="bcb" value="bcb" required>
                             </div>
                             <div class="radio">
                                 <label for="kcb">KCB </label>
-                                <input type="radio" name="bank_deposit" id="kcb" value="kcb">
+                                <input type="radio" name="bank_deposit" id="kcb" value="kcb" required>
                             </div>
                             <div class="radio">
                                 <label for="bbci">BBCI </label>
-                                <input type="radio" name="bank_deposit" id="bbci" value="bbci">
+                                <input type="radio" name="bank_deposit" id="bbci" value="bbci" required>
                             </div>
                             <div class="radio">
                                 <label for="crdb">CRDB </label>
-                                <input type="radio" name="bank_deposit" id="crdb" value="crdb">
+                                <input type="radio" name="bank_deposit" id="crdb" value="crdb" required>
                             </div>
                         </div>
                     </div>
@@ -149,7 +149,7 @@
                         </div>
                     </div>
                     <div class="sender-input">
-                        <input type="text" name="fullname" id="fullname-sender" required>
+                        <input type="text" name="fullname" id="fullname-sender">
                         <label for="fullname">Full Name </label>
                     </div>
                     <div class="sender-input">
@@ -173,7 +173,7 @@
                 <label for="message"> Receiver Details: </label>
                 <p class="exchange-changes">Kindly provide recipient details, and we'll reply within 24 hours.</p>
                 <textarea id="message" name="message" rows="9" cols="30"
-                    placeholder="Add the receiver details or any special requests/questions"></textarea>
+                    placeholder="Add the receiver details or any special requests/questions" required></textarea>
                 <div class="company-account">
                     <p class="cash-withdraw">Kindly remit the total funds, <br> and your transaction will be processed
                         within 24 hours.</p>
@@ -181,7 +181,7 @@
                 </div>
                 <div class="file">
                     <label for="image"><i class="fa-solid fa-paperclip"></i> Add Proof of Payment </label>
-                    <input type="file" name="image" id="image" accept="image/*, .jpg, .jpeg, .png" multiple>
+                    <input type="file" name="image" id="image" accept="image/*, .jpg, .jpeg, .png" multiple required>
                 </div>
             </div>
 
