@@ -409,7 +409,7 @@ textarea {
 
 /* Style close button */
 #close-notification {
-    background-color: #444;
+    background-color: #44444405;
     border: none;
     color: #fff;
     cursor: pointer;
@@ -417,6 +417,12 @@ textarea {
     top: 2px;
     left: 10px;
     font-size: 20px;
+    padding: 5px 10px;
+}
+
+#close-notification:hover {
+ border-radius: 18px;
+ background-color: #44444438;
 }
 
 /* Styling for the error notification */
