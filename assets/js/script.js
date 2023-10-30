@@ -123,7 +123,7 @@ document.getElementById("continueBtn").addEventListener("click", function () {
     // Check if the "You send" input is empty or 0
     const sendAmount = parseFloat(sendAmountInput.value);
     if (isNaN(sendAmount) || sendAmount <= 0) {
-        alert("Please enter a numerical amount in the 'You send' field.");
+        alert("Please enter an amount in the 'You send' field.");
         return; // Prevent continuing if the input is invalid
     }
 
@@ -303,15 +303,8 @@ function calculateReceiveAmount(sendAmount, selectedCountry, selectedCurrency) {
  * Event handler for the "change" event of the country select input
  */
 function handleCountrySelectChange() {
-    const selectedCountry = this.value;
-    const selectedCurrency = currencySelect.value;
-    calculateReceiveAmount(parseFloat(sendAmountInput.value), selectedCountry, selectedCurrency);
-
-    // Set the default "They receive" currency to "BIF" for Burundi
-    const receiveCurrency = selectedCountry === 'Burundi' ? 'BIF' : selectedCurrency;
-    receiveCurrencySelect.value = receiveCurrency;
-
-
+    const selectedCountry = document.getElementById('countrySelect').value;
+    
     // Display the selected country's currency symbol
     const countryCurrencySymbol = getCountryCurrencySymbol(selectedCountry);
     const receiveAmountLabel = document.querySelector('label[for="receive-amount"]');
@@ -362,6 +355,6 @@ function getCountryCurrencySymbol(selectedCountry) {
         case 'Rwanda':
             return 'RWF';
         default:
-            receiveCurrencySelect.value = currencySelect.value;
+            return '';
     }
 }
