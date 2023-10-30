@@ -269,7 +269,7 @@ function calculateReceiveAmount(sendAmount, selectedCountry, selectedCurrency) {
     if (!isNaN(sendAmount) && selectedCountry in exchangeRates) {
         const exchangeRate = exchangeRates[selectedCountry][selectedCurrency];
 
-        if (exchangeRate !== undefined) {
+        if (exchangeRate !== null &&exchangeRate !== undefined) {
             let receiveCurrency;
 
             if (selectedCountry === 'Burundi') {
@@ -304,11 +304,15 @@ function calculateReceiveAmount(sendAmount, selectedCountry, selectedCurrency) {
  */
 function handleCountrySelectChange() {
     const selectedCountry = document.getElementById('countrySelect').value;
-    
+
     // Display the selected country's currency symbol
     const countryCurrencySymbol = getCountryCurrencySymbol(selectedCountry);
     const receiveAmountLabel = document.querySelector('label[for="receive-amount"]');
     receiveAmountLabel.textContent = `They receive (${countryCurrencySymbol}):`;
+
+    // Update the "exchange rate" field immediately
+    const selectedCurrency = document.getElementById('currency-chosed').value;
+    calculateReceiveAmount(0, selectedCountry, selectedCurrency);
 }
 
 
