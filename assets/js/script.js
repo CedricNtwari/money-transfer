@@ -119,6 +119,16 @@ document.getElementById("prevBtn").addEventListener("click", function () {
 });
 
 document.getElementById("continueBtn").addEventListener("click", function () {
+
+    // Check if the "You send" input is empty or 0
+    const sendAmount = parseFloat(sendAmountInput.value);
+    if (isNaN(sendAmount) || sendAmount <= 0) {
+        alert("Please enter a numerical amount in the 'You send' field.");
+        return; // Prevent continuing if the input is invalid
+    }
+
+    // Continue with the form submission or navigation
+    // This function navigates to the next tab as in your original code
     continueButton(1);
 });
 
