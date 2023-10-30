@@ -54,7 +54,7 @@
                 </div>
                 <div class="text-input">
                     <label for="send-amount">You send: </label>
-                    <input type="number" name="send-amount" id="send-amount" value="0.00" required>
+                    <input type="number" name="send-amount" id="send-amount" value="0.00" placeholder="0.00" required>
                     <span id="currency-chose" class="currency">
                         <label for="currency-chosed"></label>
                         <select id="currency-chosed" name="currency-chosed" aria-label="Select currency">
@@ -190,6 +190,10 @@
                 <button type="button" id="continueBtn" class="btn"></button>
             </div>
         </form>
+        <div id="notification" class="notification">
+            <span id="notification-message">This is a custom notification.</span>
+            <button id="close-notification"><i class="fa-solid fa-circle-xmark"></i></button>
+        </div>        
     </main>
 
     <!-- Footer -->

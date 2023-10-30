@@ -27,6 +27,8 @@
     --custom-header-footer-hover-color: #d3d3d3;
     --custom-background-text-input-color: #f0f8ff;
     --custom-accordion-hover: #C0CFF3;
+    --custom-notification-error: #FF5733;
+    --custom-notification-sucess: #4CAF50;
 
 }
 
@@ -145,7 +147,7 @@ input[type="number"] {
 .exchange-changes {
     font-size: smaller;
     padding-top: 0.5rem;
-    color: red;
+    color: var(--custom-notification-error);
 }
 
 .text-input {
@@ -351,7 +353,7 @@ input[type="number"] {
 .file input::file-selector-button {
     padding: 0.5rem;
     font-weight: bold;
-    color: red;
+    color: var(--custom-notification-error);
     border: 1px solid var(--custom-header-footer-hover-color);
     border-radius: 8px;
 }
@@ -388,6 +390,48 @@ input[type="number"] {
 textarea {
     width: -webkit-fill-available;
 }
+
+/* Style errors message */
+.notification {
+    display: none;
+    position: fixed;
+    top: -50px; /* Initially, hide the notification above the screen */
+    left: 0;
+    width: 100%;
+    background-color: var(--custom-notification-error); /* Use the custom error background color */
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    transition: top 0.3s ease-in-out; /* smooth transition effect */
+    z-index: 99; /* Ensure the notification is on top of other content */
+}
+
+/* Style close button */
+#close-notification {
+    background-color: #444;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    top: 2px;
+    left: 10px;
+    font-size: 20px;
+}
+
+/* Styling for the error notification */
+.notification.error {
+    background-color: var(--custom-notification-error);
+    color: #fff;
+    top: 0;
+}
+
+/* Styling for the success notification */
+.notification.success {
+    background-color: var(--custom-notification-sucess);
+    color: #fff;
+    top: 0;
+}
+
 
 /* Footer */
 footer {

@@ -104,13 +104,13 @@ function updateButtonLabels(prevBtn, continueBtn, i, totalTabs) {
         // Submit the form
         const form = document.getElementById("booknow-form");
         if (form) {
-            // Add an alert when the form is submitted
-            alert('Thank you for your submission. We have received your request.');
+            // Add an showNotification when the form is submitted
+            showNotification('Thank you for your submission. We have received your request.', 'success');
 
             // Delay the page reload for a brief moment
             setTimeout(function () {
                 window.location.reload();
-            }, 10);
+            }, 30);
             // Submit form
             form.submit();
         } else {
@@ -133,7 +133,7 @@ function validateForm() {
     const imageInput = document.getElementById('image');
     
     if (messageTextarea.value.trim() === '' || imageInput.files.length === 0) {
-        alert('Please fill in the message and attach an image.');
+        showNotification('Please fill in the message and attach an image.', 'error');
         // Prevent form submission
         return false; 
     }
@@ -153,7 +153,7 @@ document.getElementById("continueBtn").addEventListener("click", function () {
     // Check if the "You send" input is empty or 0
     const sendAmount = parseFloat(sendAmountInput.value);
     if (isNaN(sendAmount) || sendAmount <= 0) {
-        alert("Please enter an amount in the 'You send' field.");
+        showNotification("Please enter an amount in the 'You send' field.", 'error');
         return; // Prevent continuing if the input is invalid
     }
 
@@ -269,6 +269,25 @@ const countrySelect = document.getElementById('countrySelect');
 const currencySelect = document.getElementById('currency-chosed');
 const receiveCurrencySelect = document.getElementById('currency-selected');
 const exchangeRateElement = document.getElementById('exchange-rate');
+const notification = document.getElementById('notification');
+const notificationMessage = document.getElementById('notification-message');
+const closeNotification = document.getElementById('close-notification');
+
+/**
+ * Function to display error message
+ * @param {*} message Customise each error message
+ */
+function showNotification(message, type) {
+    notificationMessage.textContent = message;
+    notification.className = `notification ${type}`;
+    notification.style.display = 'block';
+}
+
+// Event listener to close the notification
+closeNotification.addEventListener('click', function () {
+    notification.style.display = 'none';
+});
+
 
 // Add event listeners to elements
 sendAmountInput.addEventListener('input', handleSendAmountInput);
