@@ -149,7 +149,7 @@
                     </div>
                     <div class="sender-input">
                         <input type="text" name="fullname" id="fullname-sender">
-                        <label for="fullname">Full Name </label>
+                        <label for="fullname-sender">Full Name </label>
                     </div>
                     <div class="sender-input">
                         <input type="number" name="phone" id="phone" required autocomplete="tel">
@@ -171,7 +171,7 @@
             <div id="tab3" class="tab">
                 <label for="message"> Receiver Details: </label>
                 <p class="exchange-changes">Kindly provide recipient details, and we'll reply within 24 hours.</p>
-                <textarea id="message" name="message" rows="9" cols="30"
+                <textarea id="message" aria-label="receiver details" name="receiver_message" rows="9" cols="30"
                     placeholder="Add the receiver details or any special requests/questions" required></textarea>
                 <div class="company-account">
                     <p class="cash-withdraw">Kindly remit the total funds, <br> and your transaction will be processed
