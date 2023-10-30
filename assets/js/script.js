@@ -80,7 +80,7 @@ function updateButtonLabels(prevBtn, continueBtn, i, totalTabs) {
  * @returns {boolean} - Returns `false` if any field in the current tab is invalid and prevents navigation.
  * 
  */
- function continueButton(n) {
+function continueButton(n) {
     const tab = document.getElementsByClassName("tab");
 
     // Check if the current tab is the last tab
@@ -106,13 +106,12 @@ function updateButtonLabels(prevBtn, continueBtn, i, totalTabs) {
         if (form) {
             // Add an showNotification when the form is submitted
             showNotification('Thank you for your submission. We have received your request.', 'success');
-
             // Delay the page reload for a brief moment
             setTimeout(function () {
+                // Submit form
+                form.submit();
                 window.location.reload();
-            }, 30);
-            // Submit form
-            form.submit();
+            }, 3000);
         } else {
             console.error("Form element not found.");
         }
@@ -131,13 +130,13 @@ function updateButtonLabels(prevBtn, continueBtn, i, totalTabs) {
 function validateForm() {
     const messageTextarea = document.getElementById('message');
     const imageInput = document.getElementById('image');
-    
+
     if (messageTextarea.value.trim() === '' || imageInput.files.length === 0) {
         showNotification('Please fill in the message and attach an image.', 'error');
         // Prevent form submission
-        return false; 
+        return false;
     }
-    
+
     // Proceed with form submission
     return true;
 }
@@ -254,7 +253,7 @@ let hasLoadedExchangeRateData = false;
 
 // Fetch exchange rate data only on the first load if not already loaded
 if (!hasLoadedExchangeRateData) {
-    updateExchangeRates().then(function() {
+    updateExchangeRates().then(function () {
         hasLoadedExchangeRateData = true;
         // Continue with calculations & UI updates
     });
@@ -281,6 +280,11 @@ function showNotification(message, type) {
     notificationMessage.textContent = message;
     notification.className = `notification ${type}`;
     notification.style.display = 'block';
+
+    // Automatically close the notification after 3 Seconds
+    setTimeout(() => {
+        notification.style.display = 'none';
+    }, 3000);
 }
 
 // Event listener to close the notification
@@ -330,7 +334,7 @@ function calculateReceiveAmount(sendAmount, selectedCountry, selectedCurrency) {
     if (!isNaN(sendAmount) && selectedCountry in exchangeRates) {
         const exchangeRate = exchangeRates[selectedCountry][selectedCurrency];
 
-        if (exchangeRate !== null &&exchangeRate !== undefined) {
+        if (exchangeRate !== null && exchangeRate !== undefined) {
             let receiveCurrency;
 
             if (selectedCountry === 'Burundi') {
