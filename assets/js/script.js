@@ -252,11 +252,22 @@ countrySelect.addEventListener('change', handleCountrySelectChange);
 currencySelect.addEventListener('change', handleCurrencyChosenChange);
 currencySelect.addEventListener('change', handleCurrencyChosenChange);
 
-// Set the default country to Burundi
-countrySelect.value = 'Burundi';
+// Fetch exchange rate data and set exchange rates
+async function initializePage() {
+    await updateExchangeRates(); // Wait for exchange rates to be fetched
 
-// Call the function to initialize the page with default values
-handleCountrySelectChange();
+    // Set the default country to Burundi
+    countrySelect.value = 'Burundi';
+
+    // Initialize the page with default values
+    handleCountrySelectChange();
+}
+
+// Initialize the page when the document is ready
+document.addEventListener("DOMContentLoaded", function () {
+    initializePage();
+});
+
 
 
 /**
