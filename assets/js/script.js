@@ -105,13 +105,13 @@ function continueButton(n) {
         const form = document.getElementById("booknow-form");
         if (form) {
             // Add an showNotification when the form is submitted
-            showNotification('Thank you for your submission. We have received your request.', 'success');
+            showNotification('Submitted! We"ll respond within 24 hours.', 'success', '<i class="fas fa-check-circle"></i>');
             // Delay the page reload for a brief moment
             setTimeout(function () {
                 // Submit form
                 form.submit();
                 window.location.reload();
-            }, 3000);
+            }, 4000);
         } else {
             console.error("Form element not found.");
         }
@@ -132,7 +132,7 @@ function validateForm() {
     const imageInput = document.getElementById('image');
 
     if (messageTextarea.value.trim() === '' || imageInput.files.length === 0) {
-        showNotification('Please fill in the message and attach an image.', 'error');
+        showNotification('Please fill in the message and attach an image.', 'error', '<i class="fas fa-exclamation-circle"></i>');
         // Prevent form submission
         return false;
     }
@@ -152,7 +152,7 @@ document.getElementById("continueBtn").addEventListener("click", function () {
     // Check if the "You send" input is empty or 0
     const sendAmount = parseFloat(sendAmountInput.value);
     if (isNaN(sendAmount) || sendAmount <= 0 || sendAmount <= 50) {
-        showNotification("Please enter an amount of at least 50 euros or 50 USD. ", 'error');
+        showNotification("Please enter an amount of at least 50 euros or 50 USD. ", 'error', '<i class="fas fa-exclamation-circle"></i>');
         return; // Prevent continuing if the input is invalid
     }
 
@@ -273,15 +273,20 @@ const notificationMessage = document.getElementById('notification-message');
 const closeNotification = document.getElementById('close-notification');
 
 /**
- * Function to display error message
- * @param {*} message Customise each error message
+ * Function to display notification with an icon
+ * @param {string} message Customized message to display
+ * @param {string} type Type of notification (e.g., 'error' or 'success')
+ * @param {string} icon Icon HTML (e.g., '<i class="fas fa-exclamation-circle"></i>')
  */
-function showNotification(message, type) {
-    notificationMessage.textContent = message;
+ function showNotification(message, type, icon) {
+    // Set the message and icon
+    notificationMessage.innerHTML = `${icon} ${message}`;
+
+    // Apply the notification type class
     notification.className = `notification ${type}`;
     notification.style.display = 'block';
 
-    // Automatically close the notification after 3 Seconds
+    // Automatically close the notification after 3 seconds
     setTimeout(() => {
         notification.style.display = 'none';
     }, 3000);
