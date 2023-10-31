@@ -71,6 +71,17 @@ The Chatbase chatbot is designed to provide real-time assistance, answer your qu
 
 ![Chatbase Chatbot](assets/images/chatbot.png)
 
+- **Notifications:** In order to achieve a good user experience, Notications are included to offer users a good guidance, provide immediate feedback and confirmation while using this Platform. Success messages confirm that a task has been completed successfully, giving users confidence in their interactions with the system. Error messages alert users to issues or mistakes they've made during their interactions.
+
+This proactive approach helps in error prevention and minimizes frustration.
+
+    - Success Message: If users have successfully completed an action or a process, a success message is displayed to inform users.
+    - Error Message: If users didn’t complete an action or left empty required input, an error message is displayed to inform users.
+
+![Sucess Message](assets/images/success.png)
+![Error Message](assets/images/error.png)
+
+
 ## Troubleshooting
 
 If you encounter any issues or errors while using the Money Transfer Financial Platform, please get in touch ntwaricedric@gmail.com.
