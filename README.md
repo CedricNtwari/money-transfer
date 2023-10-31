@@ -193,7 +193,7 @@ Additionally, I'd like to give credit to the creators of the currency API for pr
 - [Color, spot Palette](https://mycolor.space/?hex=%231E7DB0&sub=1sp)
 
 - **Note:** 
-    working with a multi-step form, using the HTML 'required' attribute alone on input fields does not provide the desired validation behavior. I have implemented custom validation logic to ensure data integrity in the context of a multi-step form. 
+    working with a multi-step form, using the HTML 'required' attribute alone on input fields does not provide the desired validation behavior. I have implemented custom validation logic to ensure data integrity in the context of a multi-step form. https://community.glideapps.com/t/multi-step-form-validation-does-not-work/59531 
 
 ## Key topics covered here in JavaScript
 
