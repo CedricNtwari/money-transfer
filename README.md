@@ -77,9 +77,11 @@ This proactive approach helps in error prevention and minimizes frustration.
 
     - Success Message: If users have successfully completed an action or a process, a success message is displayed to inform users.
     - Error Message: If users didn’t complete an action or left empty required input, an error message is displayed to inform users.
+    - Informative Message: To keep users informed and offer guidance on their interactions with the platform, ensuring a positive and informed user experience
 
 ![Sucess Message](assets/images/success.png)
 ![Error Message](assets/images/error.png)
+![Informative Message](assets/images/infos.png)
 
 
 ## Troubleshooting
