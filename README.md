@@ -71,7 +71,7 @@ The Chatbase chatbot is designed to provide real-time assistance, answer your qu
 
 ![Chatbase Chatbot](assets/images/chatbot.png)
 
-- **Notifications:** In order to achieve a good user experience, Notications are included to offer users a good guidance, provide immediate feedback and confirmation while using this Platform. Success messages confirm that a task has been completed successfully, giving users confidence in their interactions with the system. Error messages alert users to issues or mistakes they've made during their interactions.
+- **Notifications:** In order to achieve a good user experience, Notications are included to offer users a good guidance, provide immediate feedback and confirmation while using this Platform. Success messages confirm that a task has been completed successfully, giving users confidence in their interactions with the system. Notifications alert users to issues or mistakes they've made during their interactions with this platform.
 
 This proactive approach helps in error prevention and minimizes frustration.
 
