@@ -132,7 +132,7 @@ function validateForm() {
     const imageInput = document.getElementById('image');
 
     if (messageTextarea.value.trim() === '' || imageInput.files.length === 0) {
-        showNotification('Please fill in the message and attach images.', 'error', '<i class="fas fa-exclamation-circle"></i>');
+        showNotification('Please fill in the message and attach images. 😔', 'error', '<i class="fas fa-exclamation-circle"></i>');
         // Prevent form submission
         return false;
     }
