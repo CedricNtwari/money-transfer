@@ -105,7 +105,7 @@ function continueButton(n) {
         const form = document.getElementById("booknow-form");
         if (form) {
             // Add an showNotification when the form is submitted
-            showNotification('Submitted! We"ll respond within 24 hours.', 'success', '<i class="fas fa-check-circle"></i>');
+            showNotification('Submitted! We"ll respond within 24 hours. 🥳', 'success', '<i class="fas fa-check-circle"></i>');
             // Delay the page reload for a brief moment
             setTimeout(function () {
                 // Submit form
@@ -148,16 +148,26 @@ document.getElementById("prevBtn").addEventListener("click", function () {
 });
 
 document.getElementById("continueBtn").addEventListener("click", function () {
-
-    // Check if the "You send" input is empty or 0
+    // Check if the "You send" input is empty or less than 50 euros or 50 USD
     const sendAmount = parseFloat(sendAmountInput.value);
-    if (isNaN(sendAmount) || sendAmount <= 0 || sendAmount <= 50) {
-        showNotification("Please enter an amount of at least 50 euros or 50 USD. ", 'error', '<i class="fas fa-exclamation-circle"></i>');
+    if (isNaN(sendAmount) || sendAmount <= 0 || sendAmount < 50) {
+        showNotification("Please enter an amount of at least 50 euros or 50 USD. 😉", 'error', '<i class="fas fa-exclamation-circle"></i>');
         return; // Prevent continuing if the input is invalid
     }
 
+    // Check if the user is trying to continue from tab 2 to tab 3
+    if (currentTab === 1) {
+        // Display a custom confirmation dialog
+        const userConfirmed = confirm("Did you check all of our delivery methods? ");
+        if (!userConfirmed) {
+            // User clicked Cancel, don't continue to the next tab
+            return;
+        }
+        // Show a success notification if the user confirmed
+        showNotification('Delivery method chosen. Proceed to the last step. 😊', 'infos', '<i class="fa-solid fa-circle-info"></i>');
+    }
+
     // Continue with the form submission or navigation
-    // This function navigates to the next tab as in your original code
     continueButton(1);
 });
 
@@ -278,7 +288,7 @@ const closeNotification = document.getElementById('close-notification');
  * @param {string} type Type of notification (e.g., 'error' or 'success')
  * @param {string} icon Icon HTML (e.g., '<i class="fas fa-exclamation-circle"></i>')
  */
- function showNotification(message, type, icon) {
+function showNotification(message, type, icon) {
     // Set the message and icon
     notificationMessage.innerHTML = `${icon} ${message}`;
 
