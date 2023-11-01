@@ -29,6 +29,7 @@
     --custom-accordion-hover: #C0CFF3;
     --custom-notification-error: #FF5733;
     --custom-notification-sucess: #4CAF50;
+    --custom-notification-infos: #0B79D0;
 
 }
 
@@ -428,6 +429,13 @@ textarea {
 /* Styling for the error notification */
 .notification.error {
     background-color: var(--custom-notification-error);
+    color: #fff;
+    top: 0;
+}
+
+/* Styling for the informative notification */
+.notification.infos {
+    background-color: var(--custom-notification-infos);
     color: #fff;
     top: 0;
 }
