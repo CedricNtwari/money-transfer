@@ -109,12 +109,6 @@ function continueButton(n) {
         if (form) {
             // Add an showNotification when the form is submitted
             showNotification('Submitted! We"ll respond within 24 hours. 🥳', 'success', '<i class="fas fa-check-circle"></i>');
-            // Delay the page reload for a brief moment
-            setTimeout(function () {
-                // Submit form
-                form.submit();
-                window.location.reload();
-            }, 4000);
         } else {
             console.error("Form element not found.");
         }
@@ -140,7 +134,7 @@ function updateTitle(tabIndex) {
             h1Title.textContent = 'Choose Your Delivery Method';
             break;
         case 2:
-            h1Title.textContent = 'Receiver Details';
+            h1Title.textContent = 'Receiver Informations';
             break;
         // Add more cases if you have more tabs
         default:
@@ -185,12 +179,6 @@ document.getElementById("continueBtn").addEventListener("click", function () {
 
     // Check if the user is trying to continue from tab 2 to tab 3
     if (currentTab === 1) {
-        // Display a custom confirmation dialog
-        const userConfirmed = confirm("Did you check all of our delivery methods? ");
-        if (!userConfirmed) {
-            // User clicked Cancel, don't continue to the next tab
-            return;
-        }
         // Show a success notification if the user confirmed
         showNotification('Delivery method chosen. Proceed to the last step. 😊', 'infos', '<i class="fa-solid fa-circle-info"></i>');
     }
