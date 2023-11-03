@@ -335,6 +335,29 @@ input[type="number"] {
     font-style: italic; 
 }
 
+#submissionMessage {
+    display: none;
+    letter-spacing: 1px;
+}
+
+#submissionMessage p {
+    margin-bottom: 10px;
+}
+
+#startOverBtnContainer {
+    display: flex;
+    justify-content: center;
+    padding: 2rem 0;
+}
+
+#startOverBtn {
+    display: none;
+}
+
+#startOverBtn a {
+    color: var(--custom-text-color)
+}
+
 /* Import images */
 .file {
     display: flex;

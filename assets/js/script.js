@@ -75,7 +75,6 @@ function updateButtonLabels(prevBtn, continueBtn, i, totalTabs) {
         : "Continue <i class='fa-solid fa-caret-right'></i>";
 }
 
-
 /**
  * Navigate to the next or previous tab in the form.
  *
@@ -109,6 +108,26 @@ function continueButton(n) {
         if (form) {
             // Add an showNotification when the form is submitted
             showNotification('Submitted! We"ll respond within 24 hours. 🥳', 'success', '<i class="fas fa-check-circle"></i>');
+            
+            // Show the submission message and hide the button
+            const submissionMessage = document.getElementById('submissionMessage');
+            submissionMessage.style.display = 'block';
+
+            // Show the submission message and hide the button
+            const startOverButton = document.getElementById('startOverBtn');
+            startOverButton.style.display = 'block';
+
+            // Hide h1 titke
+            const h1Title = document.getElementById('title');
+            h1Title.textContent = 'Form Submitted!';
+
+            // Hide the "Previous" button
+            const prevBtn = document.getElementById("prevBtn");
+            prevBtn.style.display = 'none';
+
+            // Hide the "Submit" button
+            const continueBtn = document.getElementById('continueBtn');
+            continueBtn.style.display = 'none';
         } else {
             console.error("Form element not found.");
         }
@@ -143,8 +162,6 @@ function updateTitle(tabIndex) {
     }
 }
 
-
-
 /**
  * 
  * Validate form
@@ -162,7 +179,6 @@ function validateForm() {
     // Proceed with form submission
     return true;
 }
-
 
 // Add event listeners for the buttons in your script
 document.getElementById("prevBtn").addEventListener("click", function () {
@@ -186,7 +202,6 @@ document.getElementById("continueBtn").addEventListener("click", function () {
     // Continue with the form submission or navigation
     continueButton(1);
 });
-
 
 //          --------- Accordion Code ---------------
 
@@ -217,7 +232,6 @@ function toggleAccordion(event) {
     panel.style.display = panel.classList.contains('active') ? 'block' : 'none';
 }
 
-
 //             ------- Calculate receive amount Code ---------------
 
 let isSendAmountCleared = false; // Flag to track if the send-amount has been cleared
@@ -233,7 +247,6 @@ const exchangeRates = {
         USD: null,
     },
 };
-
 
 /**
  * Fetch exchange rate data for a specific currency pair
@@ -255,7 +268,6 @@ async function fetchExchangeRate(baseCurrency, targetCurrency) {
         return null;
     }
 }
-
 
 /**
  * update the exchangeRates object with specific exchange rate data
@@ -284,7 +296,6 @@ if (!hasLoadedExchangeRateData) {
         // Continue with calculations & UI updates
     });
 }
-
 
 const sendAmountInput = document.getElementById('send-amount');
 const receiveAmountInput = document.getElementById('receive-amount');
@@ -323,7 +334,6 @@ closeNotification.addEventListener('click', function () {
     notification.style.display = 'none';
 });
 
-
 // Add event listeners to elements
 sendAmountInput.addEventListener('input', handleSendAmountInput);
 sendAmountInput.addEventListener('focus', function () {
@@ -351,8 +361,6 @@ async function initializePage() {
 document.addEventListener("DOMContentLoaded", function () {
     initializePage();
 });
-
-
 
 /**
  * Calculates & updates receive amount and related values based on the provided input
@@ -394,7 +402,6 @@ function calculateReceiveAmount(sendAmount, selectedCountry, selectedCurrency) {
     }
 }
 
-
 /**
  * Event handler for the "change" event of the country select input
  */
@@ -418,7 +425,6 @@ function handleCountrySelectChange() {
     calculateReceiveAmount(0, selectedCountry, selectedCurrency);
 }
 
-
 /**
  * Event handler for the "input" event of the send-amount input
  */
@@ -437,7 +443,6 @@ function handleSendAmountInput() {
     }
 }
 
-
 /**
  * Event handler for the "change" event of the currency select input
  */
@@ -447,7 +452,6 @@ function handleCurrencyChosenChange() {
     const selectedCurrency = currencySelect.value;
     calculateReceiveAmount(sendAmount, selectedCountry, selectedCurrency);
 }
-
 
 /**
  * Get the currency symbol for a selected country
