@@ -424,24 +424,34 @@ function handleCountrySelectChange() {
     const selectedCurrency = document.getElementById('currency-chosed').value;
     calculateReceiveAmount(0, selectedCountry, selectedCurrency);
 }
-
 /**
  * Event handler for the "input" event of the send-amount input
  */
-function handleSendAmountInput() {
-    const sendAmount = parseFloat(this.value);
-    const selectedCountry = countrySelect.value;
-    const selectedCurrency = currencySelect.value;
-    if (isNaN(sendAmount)) {
-        // Handle empty or invalid input
-        receiveAmountInput.value = '0.00';
-        feePrice.textContent = '+ 0.00 ' + selectedCurrency + ' (5%)';
-        price.textContent = '0.00 ' + selectedCurrency;
-        this.placeholder = '0.00'; // Add the placeholder value
-    } else {
+ function handleSendAmountInput() {
+    // Get the input value and remove leading zeros
+    let inputValue = this.value;
+    inputValue = inputValue.replace(/^0+/, ''); // Remove leading zeros
+    
+    // Ensure the input is not empty and is a valid number
+    if (inputValue === '') {
+        this.value = ''; // Input is empty
+    } else if (!isNaN(inputValue)) {
+        this.value = inputValue; // Update the input value without leading zeros
+
+        const sendAmount = parseFloat(inputValue);
+        const selectedCountry = countrySelect.value;
+        const selectedCurrency = currencySelect.value;
         calculateReceiveAmount(sendAmount, selectedCountry, selectedCurrency);
+    } else {
+        // Invalid input; clear the input field and related fields
+        this.value = '';
+        receiveAmountInput.value = '0.00';
+        feePrice.textContent = '+ 0.00 ' + currencySelect.value + ' (5%)';
+        price.textContent = '0.00 ' + currencySelect.value;
+        this.placeholder = '0.00'; // Add the placeholder value
     }
 }
+
 
 /**
  * Event handler for the "change" event of the currency select input
