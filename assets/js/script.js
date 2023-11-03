@@ -390,6 +390,13 @@ function handleCountrySelectChange() {
     const receiveAmountLabel = document.querySelector('label[for="receive-amount"]');
     receiveAmountLabel.textContent = `They receive (${countryCurrencySymbol}):`;
 
+    // Reset send-amount, receive-amount, and related fields
+    sendAmountInput.value = ''; // Clear the send amount
+    receiveAmountInput.value = '0.00';
+    feePrice.textContent = '+ 0.00 ' + currencySelect.value + ' (5%)';
+    price.textContent = '0.00 ' + currencySelect.value;
+    sendAmountInput.placeholder = '0.00'; // Add the placeholder value to the send-amount input
+
     // Update the "exchange rate" field immediately
     const selectedCurrency = document.getElementById('currency-chosed').value;
     calculateReceiveAmount(0, selectedCountry, selectedCurrency);
