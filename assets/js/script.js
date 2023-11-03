@@ -36,6 +36,9 @@ function displayTab(i) {
 
     // Determine button labels and icons based on the tab index
     updateButtonLabels(prevBtn, continueBtn, i, tabs.length);
+
+    // Update the title based on the tab index
+    updateTitle(i);
 }
 
 /**
@@ -121,6 +124,31 @@ function continueButton(n) {
     // Otherwise, display the correct tab:
     displayTab(currentTab);
 }
+
+/**
+ * Function to update the title based on the selected tab
+ * @param {number} tabIndex - The index of the current tab.
+ */
+function updateTitle(tabIndex) {
+    const h1Title = document.getElementById('title'); // Get the h1 element
+
+    switch (tabIndex) {
+        case 0:
+            h1Title.textContent = 'Quick Transfer Your Money';
+            break;
+        case 1:
+            h1Title.textContent = 'Choose Your Delivery Method';
+            break;
+        case 2:
+            h1Title.textContent = 'Receiver Details';
+            break;
+        // Add more cases if you have more tabs
+        default:
+            // Handle any other tabs here
+            break;
+    }
+}
+
 
 
 /**
