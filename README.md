@@ -2,6 +2,14 @@
 
 Welcome to the Money Transfer Financial Platform, a dedicated solution tailored to the diaspora community. This platform simplifies the process of sending money to loved ones in Burundi and Rwanda, while providing real-time exchange rate information, ensuring that both senders and recipients have full visibility into their financial transactions. 
 
+- Problem Statement
+
+The inspiration for this platform came from a personal experience - the difficulty encountered in sending money to loved ones in Burundi and Rwanda, particularly when it is not possible to transfer funds directly to their losl accounts or Apps(used locally).
+
+- Solution Overview 
+
+One key advantage of our platform is that receivers can now access funds directly into their bank accounts and transfers through locally available money apps, offering flexibility and accessibility, even in areas where traditional financial services are limited.
+
 ![Money Transfer Financial Platform](assets/images/ui.png)
 
 ## Table of Contents
@@ -181,8 +189,7 @@ This project is hosted hosting platform on GitHub.
 
 ## Improvements
 
-- **Currency Exchange API Integration (Future Development):** Expanding the currency exchange API integration to include all countries and currencies worldwide.
-
+- In the future, the plan is to integrate our platform with local bank institutions. This enhancement aims to streamline the entire process, ensuring a good user experience with minimal manual interactions from the agency who has to send money from Money Transfer account to the destination.
 ## Credits
 
 In the development of this project, I've used resources like the W3Schools website to learn and implement key web development concepts.
